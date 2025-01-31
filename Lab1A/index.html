@@ -3,26 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 1 A - Introduction</title>
+    <title>Lab 1A: Arduino IDE and Artemis Board</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        h1 { color: #2c3e50; }
-        a { text-decoration: none; color: #3498db; font-size: 18px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
     </style>
 </head>
 <body>
-    <h1>Lab 1 A - Introduction</h1>
-    <p>Welcome to Lab 1 A! This lab focuses on understanding basic circuits and measurements.</p>
-    <h2>Lab Setup</h2>
-    <p>For this lab, you will need the following components:</p>
-    <ul style="text-align: left; display: inline-block;">
-        <li>Arduino Uno</li>
-        <li>Breadboard</li>
-        <li>Resistors (1kΩ, 10kΩ)</li>
-        <li>LEDs</li>
-        <li>Jumper Wires</li>
-    </ul>
-    <p>Follow the lab manual for setup instructions.</p>
+    <div class="container">
+        <h1>Lab 1A: Introduction to Arduino IDE and Artemis Board</h1>
+        
+        <h2>Objective</h2>
+        <p>The purpose of Lab 1A is to set up and become familiar with the Arduino IDE and the Artemis board. This lab taught the following skills:</p>
+        <ul>
+            <li>Programming the Artemis board</li>
+            <li>Using the onboard LED</li>
+            <li>Reading and writing serial messages over USB</li>
+            <li>Utilizing the onboard temperature sensor</li>
+            <li>Using the Microphone</li>
+        </ul>
+        
+        <h2>Prelab Requirements</h2>
+        <p>Before attending the lab, I completed the following steps:</p>
+        <ul>
+            <li>Installed the latest version of the Arduino IDE</li>
+            <li>Added the SparkFun Apollo3 board manager (JSON link) to Arduino settings</li>
+        </ul>
+        <p>(Insert a screenshot of Arduino IDE installation if applicable)</p>
+        
+        <h2>Experimental Procedure</h2>
+        
+        <h3>1. Setting Up the Artemis Board</h3>
+        <p>I connected the Artemis Board to my computer and selected the correct Board and Port in the Arduino IDE.</p>
+        <h4>Common Connection Issues and Fixes:</h4>
+        <ul>
+            <li>My Windows computer had to use the USB-C port in order for the board to read.</li>
+            <li>Needed to switch from the SVL bootloader to the Ambiq bootloader while troubleshooting with the TAs.</li>
+        </ul>
+        <p>(Insert a screenshot of Arduino IDE recognizing the Artemis board if applicable)</p>
+        
+        <h3>2. Running Basic Arduino Examples</h3>
+        <h4>First, I tested the LED Blink program:</h4>
+        <ul>
+            <li>Adjusted the Baud rate to 9600 to prevent my computer from crashing.</li>
+        </ul>
+        <p>(Insert a picture of the LED blinking on the Artemis board)</p>
+        
+        <h4>Next, I tested serial communication:</h4>
+        <ul>
+            <li>Provided input to the serial monitor and observed the output.</li>
+        </ul>
+        <p>(Insert a screenshot of serial monitor output)</p>
+        
+        <h4>Then, I tested the temperature sensor:</h4>
+        <ul>
+            <li>Held the chip between my fingers to observe temperature changes.</li>
+        </ul>
+        <p>(Insert a graph showing temperature change over time)</p>
+        
+        <h4>Finally, I tested the microphone:</h4>
+        <ul>
+            <li>Played piano notes on my computer to observe frequency variations.</li>
+        </ul>
+        <p>(Insert a screenshot of frequency data or an audio waveform plot)</p>
+    </div>
+</body>
+  
+
     <a href="../index.html">Back to Main Page</a>
 </body>
 </html>
