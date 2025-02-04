@@ -26,21 +26,27 @@
             display: block;
             margin: 10px auto;
         }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+        }
+        code {
+            background-color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
-<body>
-
-    <header>
-        Lab 1B: Bluetooth Communication with Artemis
-    </header>
-
-    <section>
+    <div class="container">
+        <h1>Lab 1B: Bluetooth Communication with Artemis</h1>
+        
         <h2>Objective</h2>
         <p>The goal of Lab 1B was to establish Bluetooth communication between my computer and the Artemis board. I used Python in Jupyter notebooks to send commands to the Artemis board, which was running Arduino code. I also set up communication from the Artemis back to my computer and the Python script. This communication was made easier through the use of notifiers. The ability of the Artemis to send data back to the computer via Bluetooth will be useful in future projects.</p>
-    </section>
 
-    <section>
         <h2>Prelab: Setup and Codebase</h2>
         
         <h3>Computer Setup</h3>
@@ -59,18 +65,17 @@
         <h4>Install Necessary Packages</h4>
         <p>After activating the environment, I installed the necessary Python packages for the lab, including <code>numpy</code>, <code>pyyaml</code>, <code>bleak</code>, and <code>jupyterlab</code>, using the following command:</p>
         <pre><code>pip install numpy pyyaml colorama nest_asyncio bleak jupyterlab</code></pre>
-    </section>
-
-    <section>
+        
         <h3>Codebase</h3>
         <p>Once the environment was set up, I downloaded and unzipped the codebase into my project directory. This included several important files for both the Artemis board (<code>ble_arduino.ino</code>) and the Python side of things (<code>ble.py</code>, <code>base_ble.py</code>, etc.). To use Bluetooth Low Energy (BLE) communication, I read through the provided <code>demo.ipynb</code> notebook to familiarize myself with how the code is structured and the functions I would use.</p>
-    </section>
 
-    <section>
         <h2>Artemis Board Setup</h2>
         <p>On the Artemis side, I first installed the <code>ArduinoBLE</code> library through the Arduino IDE’s library manager. Then, I loaded the <code>ble_arduino.ino</code> sketch onto the Artemis board. It was important to set the baud rate to 9600 bps, which would allow for the communication between the computer and the Artemis board without crashing my computer.</p>
         <p>The Artemis board printed its MAC address, which I later used to update the <code>connections.yaml</code> file on the computer side to ensure the correct pairing.</p>
-    </section>
-
+        
+        <h2>Lab Tasks</h2>
+        
+       
+    </div>
 </body>
 </html>
