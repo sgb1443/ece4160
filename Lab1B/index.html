@@ -103,6 +103,11 @@
         <h3>3. Adding GET_TIME_MILLIS Command</h3>
         <p>I then added a new command, <strong>GET_TIME_MILLIS</strong>, to the Artemis board. The Jupyter notebook requested the time from the Artemis, and the Artemis sent back the time it had been running for in the format <code>T: milliseconds</code> and displayed <code>Sent time</code> on the serial monitor.</p>
 
+               <h4>Arduino Code & Output:</h4>
+            <img src="gettimearduino.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+         <h4>Get Time Command:</h4>
+            <img src="gettimepythons.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        
         <h3>4. Setting Up Notification Handler in Python</h3>
         <p>I set up a <strong>notification handler</strong> in Python to receive the time string from the Artemis board. The handler processed the string (e.g., <code>T:123456</code>) and extracted the time value from it. This step allowed for less code needed to obtain a value. In task 3, it takes four lines to extract a value, while in task 4, it only takes two once the notifier is set up.</p>
 
