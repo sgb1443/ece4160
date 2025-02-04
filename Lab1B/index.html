@@ -10,3 +10,91 @@
     <p><a href="https://sgb1443.github.io/ece4160/">Back to Main Page</a></p>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1B: Bluetooth Communication with Artemis</title>
+</head>
+<body>
+
+    <h1>Lab 1B: Bluetooth Communication with Artemis</h1>
+
+    <h2>Objective</h2>
+    <p>The purpose of Lab 1B is to establish communication between your computer and the Artemis board through the Bluetooth stack. The computer will send Python commands from a Jupyter notebook to an Artemis board running the Arduino programming language. We will also establish a framework for sending data from the Artemis to the computer via Bluetooth that will be useful in future labs.</p>
+
+    <h2>Prelab</h2>
+
+    <h3>Computer Setup</h3>
+    <h4>Install Python</h4>
+    <p>You need to install Python 3 and pip. Ensure that you have the latest versions (Python >= 3.10 and pip >= 21.0).</p>
+    
+    <h4>Virtual Environment Setup</h4>
+    <p>Activate your virtual environment to isolate your Python setup for this lab. Follow the provided instructions to create and activate a virtual environment:</p>
+    <ul>
+        <li>Install venv: <code>python3 -m pip install --user virtualenv</code></li>
+        <li>Create a new virtual environment: <code>python3 -m venv FastRobots_ble</code></li>
+        <li>Activate virtual environment: <code>source FastRobots_ble/bin/activate</code></li>
+    </ul>
+
+    <h3>Lab Codebase</h3>
+    <p>The lab codebase is provided in the project directory under <code>ble_robot_1.2</code>. Ensure to download and unzip the files into your project folder.</p>
+
+    <h3>Artemis Board Setup</h3>
+    <ul>
+        <li>Install ArduinoBLE library using the Arduino IDE’s library manager.</li>
+        <li>Upload the <code>ble_arduino.ino</code> sketch to the Artemis board, ensuring to set the baud rate to 115200 bps.</li>
+    </ul>
+
+    <h2>Lab Tasks</h2>
+    <h3>Configurations</h3>
+    <p>Update the Artemis MAC address in <code>connections.yaml</code> and replace the BLEService UUID in the Arduino sketch. Ensure proper matching between Python and Arduino UUIDs.</p>
+
+    <h3>Task 1: Send a String from the Computer to Artemis</h3>
+    <p>Send the string value "HiHello" using the ECHO command and receive the augmented string "Robot says -> HiHello :)" from the Artemis.</p>
+    <h4>Code Snippet</h4>
+    <pre><code>
+# Example code for sending and receiving string data
+# Send string to Artemis
+send_data("HiHello")
+
+# Receive response from Artemis
+response = receive_data()
+print(response)  # Expected output: "Robot says -> HiHello :)"
+    </code></pre>
+
+    <h3>Task 2: Send Three Floats to Artemis</h3>
+    <p>Use the SEND_THREE_FLOATS command to send three float values to the Artemis, and process these values on the board.</p>
+
+    <h3>Task 3: Get Time from Artemis</h3>
+    <p>Add a command <code>GET_TIME_MILLIS</code> that prompts the Artemis board to reply with a string like "T:123456". Use a notification handler in Python to receive and extract the time from the string.</p>
+
+    <h3>Task 4: Collect Time Stamps</h3>
+    <p>Set up a loop that collects time stamps in milliseconds and sends them to the laptop. Store these values in an array, then send the array to the computer to be processed.</p>
+
+    <h3>Task 5: Get Temperature Readings</h3>
+    <p>Add a second array to store temperature readings along with time stamps. Implement the <code>GET_TEMP_READINGS</code> command to send each time stamp with a corresponding temperature reading.</p>
+
+    <h3>Additional Tasks for 5000-level Students</h3>
+    <p>Perform an analysis on the communication performance and determine the effective data rate and reliability of the communication between the Artemis and the computer.</p>
+
+    <h2>Discussion</h2>
+    <p>This lab helped me establish a solid foundation in Bluetooth communication using BLE. I learned how to send and receive data wirelessly between the Artemis board and my computer, and how to handle various types of data, including strings, floats, and arrays. One of the challenges I faced was ensuring the correct matching of UUIDs between the Arduino sketch and the Python code. Once this was resolved, I was able to successfully implement the communication system and test it with various commands.</p>
+
+    <h3>Challenges</h3>
+    <p>One challenge I faced was troubleshooting connection issues with the Artemis board. It was important to make sure that the Bluetooth service and UUIDs were correctly configured. Another challenge was managing the timing and memory constraints when storing multiple data points in arrays on the Artemis board.</p>
+
+    <h3>Key Learnings</h3>
+    <p>Through this lab, I gained a deeper understanding of how Bluetooth Low Energy communication works, especially in the context of embedded systems like the Artemis board. I also learned how to use Jupyter notebooks for real-time communication and data processing with Python.</p>
+
+    <h2>Conclusion</h2>
+    <p>In conclusion, Lab 1B provided valuable hands-on experience with Bluetooth communication and microcontroller programming. I now have a better understanding of how to send and receive data wirelessly and how to use BLE for future robotics applications.</p>
+
+    <h3>Video Demonstration</h3>
+    <p>Watch the YouTube video demonstration below:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/z4FyM2t44sE" frameborder="0" allowfullscreen></iframe>
+
+</body>
+</html>
