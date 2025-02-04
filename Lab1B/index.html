@@ -111,6 +111,11 @@
         <h3>4. Setting Up Notification Handler in Python</h3>
         <p>I set up a <strong>notification handler</strong> in Python to receive the time string from the Artemis board. The handler processed the string (e.g., <code>T:123456</code>) and extracted the time value from it. This step allowed for less code needed to obtain a value. In task 3, it takes four lines to extract a value, while in task 4, it only takes two once the notifier is set up.</p>
 
+          <h4>Notifier Code:</h4>
+            <img src="task 4 notifier code.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+         <h4>Using the Notifier:</h4>
+            <img src="task4activate.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        
         <h3>5. Measuring Data Transfer Rate</h3>
         <p>Next, I wrote a loop that continuously requested the current time from the Artemis board in milliseconds. The timestamps were sent from the Artemis to my computer and processed by the notification handler. I collected these timestamps for a few seconds and calculated how fast the messages were being sent by having the Arduino code label the number of each data value sent. This helped me determine the effective data transfer rate of the system when calling for data from Artemis to Jupyter notebook. <strong>134 data points</strong> were sent in <strong>7.2 seconds</strong>, for a rate of a data point every <strong>0.0186 milliseconds</strong>.</p>
 
