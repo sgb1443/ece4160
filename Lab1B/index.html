@@ -50,32 +50,30 @@
         <h2>Prelab: Setup and Codebase</h2>
         
         <h3>Computer Setup</h3>
-        <p>To begin the lab, I ensured that I had the latest version of Python installed (Python 3.10 or later) and verified that pip was also up-to-date. The first task was to install the required packages and set up a virtual environment to isolate my lab dependencies from the rest of the system.</p>
+        <p>To begin the lab, I ensured that I had the latest version of Python installed (Python 3.10 or later) and verified that pip was 
+            also up-to-date. The first task was to install the required packages and set up a virtual environment to isolate my lab dependencies 
+            from the rest of the system.</p>
         
-        <h4>Install Virtual Environment</h4>
-        <p>I installed <code>virtualenv</code> with the command:</p>
-        <pre><code>python3 -m pip install --user virtualenv</code></pre>
         
         <h4>Create and Activate the Virtual Environment</h4>
-        <p>I created a new directory for my lab project and created a virtual environment:</p>
-        <pre><code>python3 -m venv FastRobots_ble</code></pre>
-        <p>I activated the environment with:</p>
-        <pre><code>> .\FastRobots_ble\Scripts\activate</code></pre>
-
+        <p>I installed and created a virtual environment for Fast Robots and placed it in its own directory. After activating the environment, 
+            I installed the necessary Python packages for the lab</p>
+        
           <h4>Virtual Environment Setup through Command Prompt:</h4>
             <img src="command.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
-        
-
-        <h4>Install Necessary Packages</h4>
-        <p>After activating the environment, I installed the necessary Python packages for the lab using the following command:</p>
-        <pre><code>pip install numpy pyyaml colorama nest_asyncio bleak jupyterlab</code></pre>
-        
+                
         <h3>Codebase</h3>
-        <p>Once the environment was set up, I downloaded and unzipped the codebase into my project directory. This included several important files for both the Artemis board (<code>ble_arduino.ino</code>) and the Python side of things (<code>ble.py</code>, <code>base_ble.py</code>, etc.). To use Bluetooth Low Energy (BLE) communication, I read through the provided <code>demo.ipynb</code> notebook to familiarize myself with how the code is structured and the functions I would use.</p>
+        <p>Once the environment was set up, I downloaded and unzipped the codebase into my project directory. This included several important 
+            files for both the Artemis board (<code>ble_arduino.ino</code>) and the Python side of things (<code>ble.py</code>, <code>base_ble.py</code>, etc.). 
+            To use Bluetooth Low Energy (BLE) communication, I read through the provided <code>demo.ipynb</code> notebook to familiarize myself with 
+            how the code is structured and the functions I would use.</p>
 
         <h2>Artemis Board Setup</h2>
-        <p>On the Artemis side, I first installed the <code>ArduinoBLE</code> library through the Arduino IDE’s library manager. Then, I loaded the <code>ble_arduino.ino</code> sketch onto the Artemis board. It was important to set the baud rate to 9600 bps, which would allow for the communication between the computer and the Artemis board without crashing my computer.</p>
-        <p>The Artemis board printed its MAC address, which I later used to update the <code>connections.yaml</code> file on the computer side to ensure the correct pairing.</p>
+        <p>On the Artemis side, I first installed the <code>ArduinoBLE</code> library through the Arduino IDE’s library manager. Then, I loaded the 
+            <code>ble_arduino.ino</code> sketch onto the Artemis board. It was important to set the baud rate to 9600 bps, which would allow for the 
+            communication between the computer and the Artemis board without crashing my computer.</p>
+        <p>The Artemis board printed its MAC address, which I later used to update the <code>connections.yaml</code> file on the computer 
+            side to ensure the correct pairing. I also generated a UUid using the python script and made sure it was matching in the Arduino_Ble code. </p>
           
         <h4>Artemis connected through bluetooth:</h4>
             <img src="connected.png" alt="bluetooth connection" style="width: 400px; height: auto;">
