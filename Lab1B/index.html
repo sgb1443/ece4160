@@ -119,6 +119,13 @@
         <h3>5. Measuring Data Transfer Rate</h3>
         <p>Next, I wrote a loop that continuously requested the current time from the Artemis board in milliseconds. The timestamps were sent from the Artemis to my computer and processed by the notification handler. I collected these timestamps for a few seconds and calculated how fast the messages were being sent by having the Arduino code label the number of each data value sent. This helped me determine the effective data transfer rate of the system when calling for data from Artemis to Jupyter notebook. <strong>134 data points</strong> were sent in <strong>7.2 seconds</strong>, for a rate of a data point every <strong>0.0186 milliseconds</strong>.</p>
 
+         <h4>Arduino Code:</h4>
+            <img src="5arduino.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+         <h4>Calling in Jupyter Notebook:</h4>
+            <img src="task5python.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        <h4>Data Output:</h4>
+            <img src="5reading.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        
         <h3>6. Storing Time Stamps in an Array</h3>
         <p>Next, instead of sending each timestamp individually, I stored them in an array. I made the size of the array to be <strong>5,000</strong> and had the code alert me when the array filled. I also created a <strong>SEND_TIME_DATA</strong> command that loops through the array and sends each data point back to the computer for processing. This allowed me to gather and then send all of the data to Jupyter notebook.</p>
 
