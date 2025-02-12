@@ -76,9 +76,8 @@
             corresponding accelerometer values change, while the gyroscope shows minimal variation. During rotation, the accelerometer readings fluctuate 
             continuously, whereas the gyroscope detects changes only while the motion is happening. When flipped, the accelerometer readings adjust as different 
             axes align with gravity. Once the IMU remains at a fixed angle, the gyroscope records small values since it measures angular velocity rather than absolute 
-            position. The video below illustrates these behaviors as the IMU is flipped, rotated, and accelerated.
+            position. The video below illustrates these behaviors as the IMU is flipped, rotated, and accelerated. </p>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/cwQI92nllOE" frameborder="0" allowfullscreen></iframe>
-</p>
 
         <h3>LED Startup Indicator</h3>
         <p>I added code to make the Artemis blue light blink, indicating that the IMU is properly connected.</p>
@@ -110,7 +109,7 @@
         <h4>FFT Roll:</h4>
             <img src="graphfftroll.png" alt="." style="width: 400px; height: auto;">
         <h4>FFT Pitch:</h4>
-            <img src="graphfftpitch" alt="." style="width: 400px; height: auto;">
+            <img src="graphfftpitch.png" alt="." style="width: 400px; height: auto;">
      
         <h3>Low-Pass Filter Implementation</h3>
          <p>I implemented a low pass filter to clean the noise out of the raw pich and roll data. I used .1 as my alpha, which is calculate from 
@@ -118,17 +117,15 @@
              Note: the Frequency axis here should be scaled by 10,000. </p>
          <h4>LPF Code:</h4>
             <img src="lpfcode.png" alt="." style="width: 400px; height: auto;">
-        h4>LPF Roll:</h4>
+        <h4>LPF Roll:</h4>
             <img src="afterLPF.png" alt="." style="width: 400px; height: auto;">
         <h4>LPF Pitch:</h4>
             <img src="afterLPFpitch.png" alt="." style="width: 400px; height: auto;">
         <h4>LPF Roll:</h4>
             <img src="fourierlpfroll.png" alt="." style="width: 400px; height: auto;">
         <h4>LPF Pitch:</h4>
-            <img src="fourierlpfpitch" alt="." style="width: 400px; height: auto;">
+            <img src="fourierlpfpitch.png" alt="." style="width: 400px; height: auto;">
        
-        
-        <div class="answer-box">[Discuss cutoff frequency choice]</div>
 
         <h2>Gyroscope</h2>
         <h3>Pitch, Roll, and Yaw Computation</h3>
