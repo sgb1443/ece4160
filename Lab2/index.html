@@ -61,32 +61,28 @@
 
         <h2>IMU Setup</h2>
         <h3>IMU Connection</h3>
-        <p>Describe how you connected the IMU to the Artemis board and provide a picture.</p>
+        <p>To set up the IMU, I plugged it into the Artemis and then ran the example code provided to ensure it was working as intended.</p>
         <img src="path/to/imu_connection.jpg" alt="IMU Connection Diagram">
 
         <h3>AD0_VAL Definition</h3>
-        <p>What does AD0_VAL represent? Should it be 0 or 1?</p>
-        <div class="answer-box">[Your answer here]</div>
+        <p>In the example code, AD0_VAL is assigned a value of 1, signifying that the ADR jumper on the IMU has not been bridged. 
+            This setting designates the IMU’s address as 0x69, making SPI communication possible. If the jumper were soldered, 
+            SPI communication would be disabled, so since it remains open, AD0_VAL must be set to 1 to maintain SPI compatibility.</p>
+     
 
-        <h3>IMU Example Code</h3>
-        <p>Did the IMU example code run correctly? What were your observations?</p>
-        <div class="answer-box">[Your answer here]</div>
-
-        <h3>Sensor Data Observations</h3>
-        <p>Explain how acceleration and gyroscope data changed as you rotated, flipped, and moved the board.</p>
-        <div class="answer-box">[Your answer here]</div>
+        <h3>IMU Basic Testing & Observations</h3>
+        <p>Using the example code, I tested the IMU by applying different types of movement. When the IMU accelerates in a particular direction, only the 
+            corresponding accelerometer values change, while the gyroscope shows minimal variation. During rotation, the accelerometer readings fluctuate 
+            continuously, whereas the gyroscope detects changes only while the motion is happening. When flipped, the accelerometer readings adjust as different 
+            axes align with gravity. Once the IMU remains at a fixed angle, the gyroscope records small values since it measures angular velocity rather than absolute 
+            position. The video below illustrates these behaviors as the IMU is flipped, rotated, and accelerated.
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/cwQI92nllOE" frameborder="0" allowfullscreen></iframe>
+</p>
 
         <h3>LED Startup Indicator</h3>
-        <p>Provide a code snippet for the LED startup indicator.</p>
-        <pre><code>
-// Blink LED three times
-for (int i = 0; i < 3; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(500);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(500);
-}
-        </code></pre>
+        <p>I added code to make the Artemis blue light blink, indicating that the IMU is properly connected.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/osahaI1ORS4" frameborder="0" allowfullscreen></iframe>
+        
 
         <h2>Accelerometer</h2>
         <h3>Pitch & Roll Equations</h3>
