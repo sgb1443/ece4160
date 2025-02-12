@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMU Lab Report</title>
+    <title>Lab 1A: Using the Artemis Board</title>
     <style>
         body { 
-            font-family: Arial, sans-serif; 
+            font-family: Arial, sans-serif;
             margin: 40px;
             padding: 20px;
             background-color: #f4f4f4;
         }
-        h1, h2 { color: #333; }
-        .container { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+        h1, h2 {
+            color: #333;
         }
-        img { 
-            max-width: 100%; 
-            height: auto; 
-            display: block; 
-            margin: 10px auto; 
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lab 1A: Using the Artemis Board</h1>
+        
+        <h2>Objective</h2>
+        <p>The purpose of Lab 1A is to set up and become familiar with the Arduino IDE and the Artemis board. This lab taught the following skills:</p>
+        <ul>
         }
         iframe { 
             display: block; 
