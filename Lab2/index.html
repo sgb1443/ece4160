@@ -100,7 +100,9 @@
             transform will assist with filtering out the noise from the sensor readings.</p>
        
         <h3>Fourier Transform Analysis</h3>
-        <p>Here are graphs of my raw data of pitch and roll vs time along with the FFT plots.</p>
+        <p>I sent data from arduino to python, and then did a fourier transform to better see what area of signal the noise was located. The graph of my fourier 
+            transform lead me to select a cutoff frequency of 5 hertz, as below this level is where the noise is. 
+            Here are graphs of my raw data of pitch and roll vs time along with the FFT plots. Note: the Frequency axis here should be scaled by 10,000.</p>
        <h4>Raw Roll:</h4>
             <img src="graphroll.png" alt="." style="width: 400px; height: auto;">
         <h4>Raw Pitch:</h4>
@@ -111,7 +113,9 @@
             <img src="graphfftpitch" alt="." style="width: 400px; height: auto;">
      
         <h3>Low-Pass Filter Implementation</h3>
-         <p>I implemented a low pass filter to clean the noise out of the raw pich and roll data.</p>
+         <p>I implemented a low pass filter to clean the noise out of the raw pich and roll data. I used .1 as my alpha, which is calculate from 
+             dt = 1/(sampling rate), RC = 1/(2*pi*cutoff freq), and alpha=dt/(dt+RC) using a sampling rate of about 270 message/min and a cutoff frequency of 5 Hz. 
+             Note: the Frequency axis here should be scaled by 10,000. </p>
          <h4>LPF Code:</h4>
             <img src="lpfcode.png" alt="." style="width: 400px; height: auto;">
         h4>LPF Roll:</h4>
@@ -119,9 +123,9 @@
         <h4>LPF Pitch:</h4>
             <img src="afterLPFpitch.png" alt="." style="width: 400px; height: auto;">
         h4>LPF Roll:</h4>
-            <img src="graphfftroll.png" alt="." style="width: 400px; height: auto;">
+            <img src="fourierlpfroll.png" alt="." style="width: 400px; height: auto;">
         <h4>LPF Pitch:</h4>
-            <img src="graphfftpitch" alt="." style="width: 400px; height: auto;">
+            <img src="fourierlpfpitch" alt="." style="width: 400px; height: auto;">
        
         
         <div class="answer-box">[Discuss cutoff frequency choice]</div>
