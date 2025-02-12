@@ -131,7 +131,19 @@
         <h3>Pitch, Roll, and Yaw Computation</h3>
                <h4>Gyroscope Code:</h4>
             <img src="gyrocode.png" alt="." style="width: 400px; height: auto;">
-       
+         <h3>Gyroscope readings vs. Accelerometer:</h3>
+        <h4>Pitch:</h4>
+            <img src="steadygyropitch.png" alt="." style="width: 400px; height: auto;">
+        <h4>Roll:</h4>
+            <img src="steadygyro.png" alt="." style="width: 400px; height: auto;">
+        <h4>Yaw:</h4>
+            <img src="steadygyroyaw.png" alt="." style="width: 400px; height: auto;">
+        <h3>Discussion</h3>
+         <p> The data indicates that  the gyroscope exhibits significantly less noise than the accelerometer, but tends to drift over time. 
+        The accelerometer provides more accurate readings when the IMU remains in a fixed position. Increasing the sampling frequency enhances 
+        the gyroscope’s accuracy by allowing for more frequent updates. To achieve a more reliable signal, I implemented a complementary filter 
+        that combines both accelerometer and gyroscope measurements 
+        using weighting factor of 0.8 to give more emphasis to the accelerometer's readings, as they proved to be more accurate.</p>
 
         <h3>Complementary Filter</h3>
         <h4>CF Code:</h4>
@@ -139,7 +151,7 @@
         <h4>CF Pitch:</h4>
             <img src="cfpitch.png" alt="." style="width: 400px; height: auto;">
         <h4>CF Roll:</h4>
-            <img src="cfcode.png" alt="." style="width: 400px; height: auto;">
+            <img src="lpf roll.png" alt="." style="width: 400px; height: auto;">
 
         <h2>Sample Data</h2>
         <h3>IMU Sampling Speed</h3>
