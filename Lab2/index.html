@@ -100,14 +100,22 @@
             transform will assist with filtering out the noise from the sensor readings.</p>
        
         <h3>Fourier Transform Analysis</h3>
-        <p>Here are graphs of my raw data of pitch and roll vs time along with the frequency plots.</p>
-       <h4>Blink Code:</h4>
-            <img src="blinkwhenstart.png" alt="." style="width: 400px; height: auto;">
+        <p>Here are graphs of my raw data of pitch and roll vs time along with the FFT plots.</p>
+       <h4>Raw Roll:</h4>
+            <img src="graphroll.png" alt="." style="width: 400px; height: auto;">
+        <h4>Raw Pitch:</h4>
+            <img src="graphpitch.png" alt="." style="width: 400px; height: auto;">
+        h4>FFT Roll:</h4>
+            <img src="graphfftroll.png" alt="." style="width: 400px; height: auto;">
+        <h4>FFT Pitch:</h4>
+            <img src="graphfftpitch" alt="." style="width: 400px; height: auto;">
+     
         <h3>Low-Pass Filter Implementation</h3>
-        <pre><code>
-pitch_a_LPF[n] = alpha * pitch_a[n] + (1 - alpha) * pitch_a_LPF[n - 1];
-roll_a_LPF[n] = alpha * roll_a[n] + (1 - alpha) * roll_a_LPF[n - 1];
-        </code></pre>
+         <p>I implemented a low pass filter to clean the noise out of the raw pich and roll data.</p>
+         <h4>LPF Code:</h4>
+            <img src="graphroll.png" alt="." style="width: 400px; height: auto;">
+       
+        
         <div class="answer-box">[Discuss cutoff frequency choice]</div>
 
         <h2>Gyroscope</h2>
