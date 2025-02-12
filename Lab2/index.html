@@ -89,23 +89,20 @@
 
         <h2>Accelerometer</h2>
         <h3>Pitch & Roll Equations</h3>
-        <pre><code>
-pitch = atan2(accY, accZ) * 180 / M_PI;
-roll = atan2(accX, accZ) * 180 / M_PI;
-        </code></pre>
+        <img src="pitchroll.png" alt="Accelerometer Output">
 
         <h3>Pitch & Roll at -90°, 0°, 90°</h3>
-        <p>Provide images showing different angles.</p>
-        <img src="path/to/pitch_roll_output.jpg" alt="Accelerometer Output">
+        <p>Readings seen in video:</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TvlEFKEUYQ4" frameborder="0" allowfullscreen></iframe>
 
         <h3>Accelerometer Accuracy</h3>
-        <p>Did you perform a two-point calibration? Discuss accuracy.</p>
-        <div class="answer-box">[Your answer here]</div>
-
+        <p>The accelerometer accuracy seems to be alright if it is held steady at an angle. Even then, the sensor readings will keep changing. A fourier 
+            transform will assist with filtering out the noise from the sensor readings.</p>
+       
         <h3>Fourier Transform Analysis</h3>
-        <p>Provide a Fourier Transform graph and discuss noise reduction.</p>
-        <img src="path/to/fourier_transform.jpg" alt="Fourier Transform Graph">
-
+        <p>Here are graphs of my raw data of pitch and roll vs time along with the frequency plots.</p>
+       <h4>Blink Code:</h4>
+            <img src="blinkwhenstart.png" alt="." style="width: 400px; height: auto;">
         <h3>Low-Pass Filter Implementation</h3>
         <pre><code>
 pitch_a_LPF[n] = alpha * pitch_a[n] + (1 - alpha) * pitch_a_LPF[n - 1];
