@@ -63,12 +63,12 @@
         <h3>IMU Connection</h3>
         <p>To set up the IMU, I plugged it into the Artemis and then ran the example code provided to ensure it was working as intended.</p>
          <h4>Hardware Connection:</h4>
-            <img src="setup.heif" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+            <img src="setup.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
 
         <h3>AD0_VAL Definition</h3>
         <p>In the example code, AD0_VAL is assigned a value of 1, signifying that the ADR jumper on the IMU has not been bridged. 
             This setting designates the IMU’s address as 0x69, making SPI communication possible. If the jumper were soldered, 
-            SPI communication would be disabled, so since it remains open, AD0_VAL must be set to 1 to maintain SPI compatibility.</p>
+            SPI communication would be disabled.</p>
      
 
         <h3>IMU Basic Testing & Observations</h3>
@@ -83,7 +83,9 @@
         <h3>LED Startup Indicator</h3>
         <p>I added code to make the Artemis blue light blink, indicating that the IMU is properly connected.</p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/osahaI1ORS4" frameborder="0" allowfullscreen></iframe>
-        
+          <h4>Blink Code:</h4>
+            <img src="blinkwhenstart.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+
 
         <h2>Accelerometer</h2>
         <h3>Pitch & Roll Equations</h3>
