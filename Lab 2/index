@@ -157,7 +157,5 @@ roll_cf[n] = roll_g[n] * (1 - gamma) + gamma * roll_a_LPF[n];
         <div class="answer-box">[Your final thoughts and future improvements]</div>
 
     </div>
- <a href="../index.html">Back to Main Page</a>
 </body>
 </html>
-
