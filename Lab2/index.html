@@ -143,7 +143,10 @@
         The accelerometer provides more accurate readings when the IMU remains in a fixed position. Increasing the sampling frequency enhances 
         the gyroscope’s accuracy by allowing for more frequent updates. To achieve a more reliable signal, I implemented a complementary filter 
         that combines both accelerometer and gyroscope measurements 
-        using weighting factor of 0.8 to give more emphasis to the accelerometer's readings, as they proved to be more accurate.</p>
+        using weighting factor of 0.8 to give more emphasis to the accelerometer's readings, as they proved to be more accurate. The filter removes noise and drift
+             from the input signal. 
+         
+         </p>
 
         <h3>Complementary Filter</h3>
         <h4>CF Code:</h4>
