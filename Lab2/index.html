@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMU Lab Report</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 { color: #333; }
+        .container { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin: 10px auto; 
+        }
+        iframe { 
+            display: block; 
+            margin: 10px auto; 
+        }
+        pre { 
+            background: #f4f4f4; 
+            padding: 10px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+        }
+        .answer-box { 
+            background: #eef; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-left: 5px solid #36c; 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 10px; 
+        }
+        th, td { 
+            border: 1px solid black; 
+            padding: 8px; 
+            text-align: left; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IMU Lab Report</h1>
+
+        <h2>Objective</h2>
+        <p>This lab focuses on setting up and analyzing IMU data from the SparkFun Artemis board.</p>
+
+        <h2>IMU Setup</h2>
+        <h3>IMU Connection</h3>
+        <p>Describe how you connected the IMU to the Artemis board and provide a picture.</p>
+        <img src="path/to/imu_connection.jpg" alt="IMU Connection Diagram">
+
+        <h3>AD0_VAL Definition</h3>
+        <p>What does AD0_VAL represent? Should it be 0 or 1?</p>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h3>IMU Example Code</h3>
+        <p>Did the IMU example code run correctly? What were your observations?</p>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h3>Sensor Data Observations</h3>
+        <p>Explain how acceleration and gyroscope data changed as you rotated, flipped, and moved the board.</p>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h3>LED Startup Indicator</h3>
+        <p>Provide a code snippet for the LED startup indicator.</p>
+        <pre><code>
+// Blink LED three times
+for (int i = 0; i < 3; i++) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(500);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(500);
+}
+        </code></pre>
+
+        <h2>Accelerometer</h2>
+        <h3>Pitch & Roll Equations</h3>
+        <pre><code>
+pitch = atan2(accY, accZ) * 180 / M_PI;
+roll = atan2(accX, accZ) * 180 / M_PI;
+        </code></pre>
+
+        <h3>Pitch & Roll at -90°, 0°, 90°</h3>
+        <p>Provide images showing different angles.</p>
+        <img src="path/to/pitch_roll_output.jpg" alt="Accelerometer Output">
+
+        <h3>Accelerometer Accuracy</h3>
+        <p>Did you perform a two-point calibration? Discuss accuracy.</p>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h3>Fourier Transform Analysis</h3>
+        <p>Provide a Fourier Transform graph and discuss noise reduction.</p>
+        <img src="path/to/fourier_transform.jpg" alt="Fourier Transform Graph">
+
+        <h3>Low-Pass Filter Implementation</h3>
+        <pre><code>
+pitch_a_LPF[n] = alpha * pitch_a[n] + (1 - alpha) * pitch_a_LPF[n - 1];
+roll_a_LPF[n] = alpha * roll_a[n] + (1 - alpha) * roll_a_LPF[n - 1];
+        </code></pre>
+        <div class="answer-box">[Discuss cutoff frequency choice]</div>
+
+        <h2>Gyroscope</h2>
+        <h3>Pitch, Roll, and Yaw Computation</h3>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h3>Complementary Filter</h3>
+        <pre><code>
+pitch_cf[n] = pitch_g[n] * (1 - gamma) + gamma * pitch_a_LPF[n];
+roll_cf[n] = roll_g[n] * (1 - gamma) + gamma * roll_a_LPF[n];
+        </code></pre>
+        <img src="path/to/complementary_filter.jpg" alt="Complementary Filter Output">
+
+        <h2>Sample Data</h2>
+        <h3>IMU Sampling Speed</h3>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h3>Stored IMU Data</h3>
+        <table>
+            <tr>
+                <th>Time (ms)</th><th>Pitch</th><th>Roll</th><th>Yaw</th>
+            </tr>
+            <tr>
+                <td>100</td><td>0.25</td><td>-0.30</td><td>0.10</td>
+            </tr>
+            <tr>
+                <td>200</td><td>0.50</td><td>-0.20</td><td>0.15</td>
+            </tr>
+        </table>
+
+        <h3>Bluetooth Data Transmission</h3>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h2>Recording a Stunt</h2>
+        <h3>Car Setup</h3>
+        <p>Include a video of your RC car experiment.</p>
+        <iframe width="560" height="315" src="path/to/stunt_video.mp4" frameborder="0" allowfullscreen></iframe>
+
+        <h3>Observations from Playing with the Car</h3>
+        <div class="answer-box">[Your answer here]</div>
+
+        <h2>Conclusion</h2>
+        <div class="answer-box">[Your final thoughts and future improvements]</div>
+
+    </div>
+</body>
+</html>
 
