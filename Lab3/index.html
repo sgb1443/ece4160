@@ -82,13 +82,35 @@
             <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
          <h3>2. Setup TOF</h3>
         <p> Installed the SparkFun VL53L1X 4m laser distance sensor library and Connected the QWIIC break-out board to the Artemis, then 
-             soldered QWIIC cables to each TOF sensor. I scanned the I2C channel to find the sensors.  ***Does the address match what you expected?
+             soldered QWIIC cables to each TOF sensor. I scanned the I2C channel to find the sensors.  ***Does the address match what you expected?  
+            I set the distance mode of my sensors to short. Discuss the pros/cons of each mode, and think about which one could work on the final robot.
 
             QWIIC wiring: Red= Vcc, Black = Ground, Blue= , Yellow= 
 </p>
         
          <h4>Complete circuit:</h4>
             <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        <h4>Code to change the second TOF address:</h4>
+            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+
+ <h3>3. Test TOF</h3>
+    <p>  I tested my chosen mode by setting up my TOF sensors and collected data at 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, and 100cm. 
+        I collected 100 data points for each measurement. I added code to the main ble script to take both sensor readings and send it to python. 
+        In python, I calculated the average and standard deviation for each data point and created plots. </p>
+     
+        <h4>Data collection in Arduino:</h4>
+            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        <h4>Example Data Recieved in Python (in mm & in):</h4>
+            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+      <h4>Data math in python done for each data group (in mm):</h4>
+            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        <h4>Full Data (in mm):</h4>
+            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+          <h4>Actual Distance vs Recorded Measurement Graph:</h4>
+            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+         <h4>StDev vs Actual Distance Graph: </h4>
+            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+
 
 
         
