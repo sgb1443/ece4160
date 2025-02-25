@@ -59,3 +59,23 @@
         <h2>Objective</h2>
         <p>The purpose of this lab is to equip the robot with distance sensors - the faster the robot can sample and the more it can trust a sensor reading, the faster it is able to drive.
 </p>
+        <h2>Prelab</h2>
+        <h3>Setting up TOF</h3>
+        <p>In this lab, we will set up a Time-of-Flight (ToF) sensor, which is based on the VL53L1X. Each by default has the same address, 
+            so I wired the X shut pin to the Artemis board on one TOF, allowing me to manually change the second sensor's address. This is 
+            more efficient than continuously enable/disabling the two sensors separately as it allows for continuous data collection from both sensors. 
+            In order to detect obstacles, I will place a TOF sensor on the front of the car and on the right side. There will be blindspots on the left 
+            and in the back, however, this should be enough to allow the car to perform stunts. I used the longer wires to connect my TOF to the Arduino 
+            since the Arduino will be placed closer to the back of the car. 
+</p>
+        
+         <h4>Wiring Diagram:</h4>
+            <img src="Setup.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+          <h4>Physical Circuit:</h4>
+            <img src="Setup.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+        <h4>Scanning for i2c:</h4>
+            <img src="Setup.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+
+
+
+        
