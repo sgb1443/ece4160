@@ -115,8 +115,9 @@
 
          <p> I sped up my loop used previously to be as fast as possible. I moved the start ranging out of the loop and took out all unecescary code.
              I was able to send 86 data points from Arduino to Bluetooth in 5 seconds. I added 
-         an indicator to see if the TOF had new data yet. There was only a delay at the start, otherwise the TOF always had data ready. Although the TOF sensor is 
-             meant to read at a frequency of 50Hz, I am getting readings at 17Hz. </p>
+         an indicator to see if the TOF had new data yet. There was only a delay at the start, otherwise the TOF always had data ready. 
+             Although the TOF sensor is 
+             meant to read at a frequency of 50Hz, I am getting readings at 17Hz. The current limiting factor maybe the bluetooth communication. </p>
 
           <h4>Fast Loop Arduino Code:</h4>
             <img src="fastloopard.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
