@@ -72,7 +72,7 @@
          <h4>Wiring Diagram:</h4>
             <img src="Setup.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
           <h4>Physical Circuit:</h4>
-            <img src="Setup.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+            <img src="Whole.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
         <h4>Scanning for i2c:</h4>
             <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
 
@@ -88,8 +88,8 @@
             QWIIC wiring: Red= Vcc, Black = Ground, Blue= , Yellow= 
 </p>
         
-         <h4>Complete circuit:</h4>
-            <img src="i2c detrcted.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+         <h4>TOF Wiring:</h4>
+            <img src="shut.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
         <h4>Code to change the second TOF address:</h4>
             <img src="change.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
 
@@ -109,6 +109,16 @@
           <h4>Actual Distance vs Recorded Measurement Graph:</h4>
             <img src="graph.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
          <h4>StDev vs Actual Distance Graph: </h4>
+            <img src="stdevgraph.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+
+        <h3>4. Fast Loop</h3>
+
+         <p> I sped up my loop used previously to be as fast as possible. I was able to send 86 data points from Arduino to Bluetooth in 5 seconds. I added 
+         an indicator to see if the TOF had new data yet. There was only a delay at the start, otherwise the TOF always had data ready. </p>
+
+          <h4>Fast Loop Arduino Code:</h4>
+            <img src="graph.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
+         <h4>Fast Loop Return in Jupyter Notebook: </h4>
             <img src="stdevgraph.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
 
 
