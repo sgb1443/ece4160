@@ -82,8 +82,10 @@
             <img src="IMG_4441.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 400px; height: auto;">
          <h3>2. Setup TOF</h3>
         <p> Installed the SparkFun VL53L1X 4m laser distance sensor library and Connected the QWIIC break-out board to the Artemis, then 
-             soldered QWIIC cables to each TOF sensor. I scanned the I2C channel to find the sensors.  ***Does the address match what you expected?  
-            I set the distance mode of my sensors to short. Discuss the pros/cons of each mode, and think about which one could work on the final robot.
+            soldered QWIIC cables to each TOF sensor. I scanned the I2C channel to find the sensors. The first default address is in the i2c image above, and represents the 
+            number 84 but bit shifted.  
+            I set the distance mode of my sensors to short. The pros/cons of each mode is that it will be most accurate in the range it is set to. In this scenario, the car needs
+            to know accurately what is right by it to navigate sucessfully, hence the choice of short mode.
 
             QWIIC wiring: Red= Vcc, Black = Ground, Blue= SDA, Yellow= SCL  
 </p>
