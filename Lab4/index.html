@@ -60,18 +60,21 @@
         <p> The purpose of this lab is to change from manual to open loop control of the car.
 </p>
         <h2>Prelab</h2>
-             <h4>Wiring Diagram:</h4>
+             <h3>Wiring Diagram:</h3>
             <img src="Diagram.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 600px; height: auto;">
-        <h4>Battery Discussion: </h4>
+        <h3>Battery Discussion: </h3>
         <p>The motor drivers and the Artemis each have separate batteries to accommodate the motors' higher current demand 
             (850 mAh) while also reducing signal interference since the motors require a higher current than the Artemis (650 mAh).
 </p>
         <h2>Lab Tasks</h2>
-        <h4>Oscilliscope & Power Supply Setup:</h4>
+        <h3>Oscilliscope & Power Supply Setup:</h3>
         <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
         <h4>Power Supply Settings:</h4>
         <p>The motors are controlled by setting the pins either HIGH or LOW to move forward or backward. To ensure the signals were functioning correctly, 
             I first tested them individually on an oscilloscope before soldering them to the car's motors. I powered the motor drivers by connecting their Vin and Ground pins to a 3.7V DC power supply,
             based on the datasheet and motor specifications. The OUT1 and OUT2 pins were then connected to oscilloscope probes for monitoring.</p>
+        <h4>Code to cycle through PWM Values:</h4>
          <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+              <h4>Oscilliscope Outputs:</h4>
+        
 
