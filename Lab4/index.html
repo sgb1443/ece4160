@@ -80,12 +80,43 @@
          <h3>Attaching Motor Drivers, Assembling Car:</h3>
         <h4>Wheels Turning Each Way:</h4>
         
-         <h3>Code to Turn Wheels:</h3>
+         <h4>Code to Turn Wheels:</h4>
           <img src="wheeltest.png" alt="." style="width: 400px; height: auto;">
 
-         <h3>Whole System Running on Batteries & Bluetooth:</h3>
-         <h3>Car Assembeled:</h3>
+         <h4>Whole System Running on Batteries & Bluetooth:</h4>
+         <h4>Car Assembeled:</h4>
+        <p>To assemble the car, I used gorilla tape to secure the hardware and then used electrical tape to contol the wires and hold in the Artemis. </p>
           <img src="Assembeled.png" alt="." style="width: 400px; height: auto;">
+
+          <h3>PWM discussion:</h3>
+        <p>I tested PWM values in interavls of 10 then 5 to deterime the lower limit needed to get the wheels to turn and the car to move foreward. I was able to get the car to move at 50 PWM, as
+        shown below.Turing from rest took about 70 PWM. </p>
+
+
+                  <h3>Calibration:</h3>
+        <p>To calibrate the car to drive straight, I used the 6ft of tape on the floor in lab and ran the car 15 times at a PWM of 75 for 2100 ms. I collected data of how far off the car was after each run, and averaged it.
+        From that average (.98 feet left), I adjusted the left PWM by 16%, and collected more data. After three rounds of adjusting calibration, the car drove straight for 6 feet reliably. My final calibration factor was 1 PWM right : 1.282 PWM left.</p>
+        
+ <h4>Code:</h4>
+         <h4>Original Drift:</h4>
+         <h4>Calibrated:</h4>
+
+          <h3>Open Loop Code:</h3>
+        <p>I created functions to make the car drive straight or turn in a specified direction and speed for a given amount of time. I then used those functions to make the car drive and turn. Different compilatons of on and off pins allow the car to move in different directions. Below is the code used. </p>
+<h4>Code:</h4>
+        <img src="Assembeled.png" alt="." style="width: 400px; height: auto;">
+        <img src="Assembeled.png" alt="." style="width: 400px; height: auto;">
+        <img src="Assembeled.png" alt="." style="width: 400px; height: auto;">
+
+        <h4>Example move task:</h4>
+        <img src="Assembeled.png" alt="." style="width: 400px; height: auto;">
+        
+        
+        
+        
+
+
+        
 
 
         
