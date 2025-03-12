@@ -61,7 +61,7 @@
 </p>
         <h2>Prelab</h2>
              <h3>Handling Data:</h3>
-            <img src="Diagram.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 600px; height: auto;">
+            <img src="data.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 600px; height: auto;">
       <p>I created arrays to store the data points. I created a command to pull the data to python once I turned off the PID loop. I sent data point #, 
         milliseconds, PWM, and TOF distance reading to python to aid in debugging and allow me to graph my data. 
 </p>
@@ -73,12 +73,12 @@
           values. This made testing a lot easier. 
 </p>
 
-       <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+       <img src="1.png" alt="." style="width: 600px; height: auto;">
 
       <p>        2- Add a command to start and stop PID from python. 
 
 </p>
-       <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+       <img src="2.png" alt="." style="width: 600px; height: auto;">
 
        <p>        3- Inside the void loop (), place code that checks to see if PID is turned on. If so, run the PID loop. 
 </p>
@@ -87,7 +87,7 @@
           this is where the linear interpolation occurs. The current distance is determined, send to PID calculations, then a PWM is returned. From this PWM, the 
           correct move (either forward or backward, and how fast) command is called.
 </p>
-       <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+       <img src="4.png" alt="." style="width: 600px; height: auto;">
 
           <p>       5- The PID Calculations function is where I send the current distance and target distance to get back a PWM from the PID loop. 
 
