@@ -136,7 +136,7 @@
         
 
 <h3>Sampling time, linear interpolation: </h3>
-         <p>    In my returned arrays, there would be columns that read 0. Calculated from the missing rows, the sampling rate is ~60 ms. To fill this in, I created a linear interpolation that is triggered in the main PID
+         <p>    In my returned arrays, there would be columns that read 0. Calculated from the missing rows, the sampling rate is ~100 ms. To fill this in, I created a linear interpolation that is triggered in the main PID
              loop if the distance sensor fails to have a reading ready. (Code listed in PID loop above). After implementing, the zero rows in my arrays dissapeared. 
 </p>
   <h4>Example returned data before interpolation:</h4>
