@@ -100,5 +100,34 @@
 
       
         <h2>Lab Tasks</h2>
-        <h3>Oscilliscope & Power Supply Setup:</h3>
-        <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+        <h3>The P controller: </h3>
+         <h4>My P loop: </h4>
+        <img src="P.png" alt="." style="width: 600px; height: auto;">
+
+        <p>     I started off by writing a P controller. I then tested a range of values for Kp. If Kp was too large, the car would 
+            overshoot and crash into the wall then drive back and forth. If Kp was too small, I found the car would get stuck and not
+            be able to get to the target distance as the PWMs from the P loop would be too small for the car to move. I noticed many
+            mechanical limitations of the system, such as the car behaving differently when the battery was low, my left wheels requiring a
+            variable amount of more PWM to turn than the right wheels, and the minimum value of PWM needed to make the car move. I set my min 
+            PWM to 50 and the max to 150, I found that letting the car go up to 250 caused it to respond more unpredictably. Limiting the max PWM to 
+            150 saw little decrease in the time needed to get to the wall and many times more predictability, so this parameter was worthwhile in improving overall performance. I 
+            found my optimal Kp value to be .15. Here, the car wouldn't crash 
+            into the wall and wouldn't get stuck with too little PWM input. Too much Kp (=.4) caused the car to bounce back and forth around the target distance. 
+
+</p>
+        <h4>Videos, Kp= .15 vs Kp=.5: </h4>
+        <img src="P.png" alt="." style="width: 600px; height: auto;">
+
+        <h4>Graphs, Kp= .15 vs Kp=.5: </h4>
+         <img src="15.png" alt="." style="width: 600px; height: auto;">
+         <img src=".4.png" alt="." style="width: 600px; height: auto;">
+
+
+
+
+
+
+
+
+
+        
