@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Linear PID and Linear Interpolation</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 { color: #333; }
+        .container { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin: 10px auto; 
+        }
+        iframe { 
+            display: block; 
+            margin: 10px auto; 
+        }
+        pre { 
+            background: #f4f4f4; 
+            padding: 10px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+        }
+        .answer-box { 
+            background: #eef; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-left: 5px solid #36c; 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 10px; 
+        }
+        th, td { 
+            border: 1px solid black; 
+            padding: 8px; 
+            text-align: left; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Linear PID and Linear Interpolation</h1>
 
+        <h2>Objective</h2>
+        <p> The purpose of this lab is to get experience with PID control.
+</p>
+        <h2>Prelab</h2>
+             <h3>Handling Data:</h3>
+            <img src="Diagram.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 600px; height: auto;">
+      <p>I created arrays to store the data points. I created a command to pull the data to python once I turned off the PID loop. I sent data point #, 
+        milliseconds, PWM, and TOF distance reading to python to aid in debugging and allow me to graph my data. 
+</p>
+        <h3>Setting up PID: </h3>
+        <p>I created a few different sections of code to allow PID to run smoothly on my car. </p>
+
+ <p>         1- Add a command that allows you to change your PID values on the spot. While testing PID, 
+          it was very annoying to have to wait a few minutes for the code to compile each time I wanted to change PID 
+          values. This made testing a lot easier. 
+</p>
+
+       <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+
+      <p>        2- Add a command to start and stop PID from python. 
+
+</p>
+       <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+
+       <p>        3- Inside the void loop (), place code that checks to see if PID is turned on. If so, run the PID loop. 
+</p>
+
+        <p>       4- The PID loop checks for new TOF readings, updates arrays, and calls the command to calculate a new PWM. If no TOF reading is available,
+          this is where the linear interpolation occurs. The current distance is determined, send to PID calculations, then a PWM is returned. From this PWM, the 
+          correct move (either forward or backward, and how fast) command is called.
+</p>
+       <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
+
+          <p>       5- The PID Calculations function is where I send the current distance and target distance to get back a PWM from the PID loop. 
+
+</p>
+
+          <p>        6. On the python side, I call ble.send_command(CMD.PIDCONTROL, ".15|.4|1") to set my values, ble.send_command(CMD.PIDCONTROLON, "1") to start PID, and 
+            ble.send_command(CMD.PIDCONTROLON, "0") to turn off pid. I use a notification handler to process my array and call ble.send_command(CMD.TRANSFER, "") to get my data.  
+</p>
+
+
+      
+        <h2>Lab Tasks</h2>
+        <h3>Oscilliscope & Power Supply Setup:</h3>
+        <img src="Hookup.png" alt="." style="width: 600px; height: auto;">
