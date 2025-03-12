@@ -137,15 +137,25 @@
 
 <h3>Sampling time, linear interpolation: </h3>
          <p>    In my returned arrays, there would be columns that read 0. Calculated from the missing rows, the sampling rate is ~100 ms. To fill this in, I created a linear interpolation that is triggered in the main PID
-             loop if the distance sensor fails to have a reading ready. (Code listed in PID loop above). After implementing, the zero rows in my arrays dissapeared. 
-</p>
+             loop if the distance sensor fails to have a reading ready. (Code listed in PID loop above). After implementing, the zero rows in my arrays disappeared. After interpolation, sampling rate is ~70 ms.  </p>
+
   <h4>Example returned data before interpolation:</h4>
         <img src="b.png" alt="." style="width: 600px; height: auto;">
  <h4>Example returned data after interpolation:</h4>
         <img src="c.png" alt="." style="width: 600px; height: auto;">
 
 
+        <h3>PI, PID?: </h3>
+        <p>     I was able to get my P loop working reliably. I wrote a PI and PID loop, and after much testing I have decided I need some more office hours to help debug my PI loop. Currently, the PWM is always maxed out and I suspect
+            there is an error with my integrator error, causing the PWMs to always be maxed. My car keeps crashing into the wall when I run the code and infinite print statements have not come to the rescue. I would like to get PI
+            & PID working ASAP so I can have more reliable positional controls on my car. </p>
 
+
+ <h3>Discussion: </h3>
+ <p>     For me, the theme of the lab was debugging. I'd run basic example code to test my TOF and motor drivers when things started to go haywire. A fresh battery also solves a lot of issues. Finally, print statements are
+     your best friend to see where a loop is getting stuck. I'm a lot more confident with how all the sections of the .ble operate together as well now after setting up the code for this lab in so many areas of the master file. 
+
+</p>
 
 
 
