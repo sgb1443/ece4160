@@ -133,7 +133,16 @@
         <h4>Video showing Kp is too high, kp = .3:</h4>
        <iframe width="560" height="315" src="https://www.youtube.com/embed/-CaxIrQKc-Q" frameborder="0" allowfullscreen></iframe>
 
+        
 
+<h3>Sampling time, linear interpolation: </h3>
+         <p>    In my returned arrays, there would be columns that read 0. Calculated from the missing rows, the sampling rate is ~60 ms. To fill this in, I created a linear interpolation that is triggered in the main PID
+             loop if the distance sensor fails to have a reading ready. (Code listed in PID loop above). After implementing, the zero rows in my arrays dissapeared. 
+</p>
+  <h4>Example returned data before interpolation:</h4>
+        <img src="b.png" alt="." style="width: 600px; height: auto;">
+ <h4>Example returned data after interpolation:</h4>
+        <img src="c.png" alt="." style="width: 600px; height: auto;">
 
 
 
