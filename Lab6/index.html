@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Linear PID and Linear Interpolation</title>
+    <title>Orientation PID Control</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -54,16 +54,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>Linear PID and Linear Interpolation</h1>
+        <h1>Orientation PID Control</h1>
 
         <h2>Objective</h2>
-        <p> The purpose of this lab is to get experience with PID control.
+        <p> The goal of this lab was to gain hands-on experience with orientation PID control using the IMU. While Lab 5 
+            focused on PID control for wall distance with TOF sensors, this lab focused on controlling the robot’s yaw based on IMU data.
 </p>
         <h2>Prelab</h2>
+
+         <h3>Settig up the DMP:</h3>
+            <img src="data.png" alt="" style="width: 600px; height: auto;">
+      <p>Digital integration of gyro data can lead to drift over time, as small errors and noise accumulate, 
+          causing the estimated orientation to slowly become inaccurate as seen in prior labs. To reduce yaw drift, I used the onboard digital 
+          motion processor (DMP) in the IMU, which fuses gyro and accelerometer
+          data internally and provides orientation estimates with much lower drift. Using the DMP significantly helped maintain a stable yaw reading.
+          I turned on the DMP in the setup code, ran the examples, and then integrated the example code with my ble code to get a yaw reading that I then used 
+          in my control loop. 
+</p>
              <h3>Handling Data:</h3>
             <img src="data.png" alt="Screenshot showing virtual environment setup in command prompt" style="width: 600px; height: auto;">
       <p>I created arrays to store the data points. I created a command to pull the data to python once I turned off the PID loop. I sent data point #, 
-        milliseconds, PWM, and TOF distance reading to python to aid in debugging and allow me to graph my data. 
+        milliseconds, PWM, and Yaw reading to python to aid in debugging and allow me to graph my data. 
 </p>
         <h3>Setting up PID: </h3>
         <p>I created a few different sections of code to allow PID to run smoothly on my car. </p>
