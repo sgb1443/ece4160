@@ -145,23 +145,23 @@
 
 
         <h4>Video of Kp too low, Kp= 1:</h4>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/uFmrfttfeCo" frameborder="0" allowfullscreen></iframe>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/uFmrfttfeCo" frameborder="0" allowfullscreen></iframe>
 
         <h4>Video showing Kp is too high, Kp = 3:</h4>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/G_RGndXXKAU" frameborder="0" allowfullscreen></iframe>
 
         <h4>Video showing good Kp, Kp= 2</h4>
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/-CaxIrQKc-Q" frameborder="0" allowfullscreen></iframe>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/LG_BuYDusSc" frameborder="0" allowfullscreen></iframe>
 
         
 
 
         <h3>PI, PID?: </h3>
-        <p>     I was able to get my P loop working reliably. I wrote a PI and PID loop, and after much testing I have decided I need some more office hours to help debug my PI loop. Currently, the PWM is always maxed out and I suspect
-            there is an error with my integrator error, causing the PWMs to always be maxed. My car keeps crashing into the wall when I run the code and infinite print statements have not come to the rescue. I would like to get PI
-            & PID working ASAP so I can have more reliable positional controls on my car. </p>
- <h4>Example of PI stuck at 150 PWM:</h4>
-        <img src="e.png" alt="." style="width: 400px; height: auto;">
+        <p>     I was able to get my P loop working reliably. Taking the derivative of a signal that is the integral of another signal 
+            can make sense in theory because the derivative and integral are inverse operations. However, in practice, this can amplify noise and lead to instability. 
+            The derivative term is very sensitive to sudden changes or small fluctuations, which can result in large spikes in the output. In this case, P control appeared to be suitable.
+        </p>
+ 
 
  <h3>Discussion: </h3>
  <p>     For me, the theme of the lab was debugging. I'd run basic example code to test my TOF and motor drivers when things started to go haywire to see if there was a hardware or software issue. A fresh battery also solves a lot of issues. Finally, print statements are
