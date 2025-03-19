@@ -105,7 +105,7 @@
 
 </p>
 
-          <p>        6. On the python side, I call ble.send_command(CMD.ORIENTPIDCONTROL, ".15|.4|1") to set my values, ble.send_command(CMD.ORIENTPIDCONTROLON, "1") to start PID, and 
+          <p>        6. On the python side, I call ble.send_command(CMD.ORIENTPIDCONTROL, "P|I|D| YawGoal") to set my values, ble.send_command(CMD.ORIENTPIDCONTROLON, "1") to start PID, and 
             ble.send_command(CMD.ORIENTPIDCONTROLON, "0") to turn off PID. I use a notification handler to process my array and call ble.send_command(CMD.ORIENTTRANSFER, "") to get my data.  
 </p>
 
