@@ -39,21 +39,26 @@
         <h1>Lab 7: Kalman Filter Implementation</h1>
 
         <h3>1. Estimate Drag and Momentum</h3>
-        <p>I estimated the drag and momentum terms for my A and B matrices using a step response. I drove the car towards a wall at a constant input motor speed while logging motor input values and ToF sensor output. The step size used was <strong>u(t) = 150 PWM</strong>, the maximum from Lab 5. Data was collected far enough from the wall to ensure the car reached steady state. The step response was plotted in Python to calculate drag and mass, as shown below.</p>
+        <p>I estimated the drag and momentum terms for my A and B matrices using a step response. I drove the car towards a wall at a 
+            constant input motor speed while logging motor input values and ToF sensor output. The step size used was <strong>u(t) = 150 PWM</strong>, 
+            the maximum from Lab 5. Data was collected far enough from the wall to ensure the car reached steady state. The step response was plotted in 
+            Python to calculate drag and mass, as shown below.</p>
 
         <p>Graphs:</p>
         <img src="finaldate.png" alt="Step response graph">
 
-        <p>Python Code for calculating drag (d) & mass (m):</p>
-        <img src="pyt.png" alt="Python code snippet for drag and mass calculation">
-
-          <p>Outputs:</p>
-        <img src="calcsfinal.png" alt="Python code snippet for drag and mass calculation">
-
-        <p>To gather this data, I modified one loop of my Lab 5 code to use a constant PWM of 150 instead of recalculating each time. This simplified starting, stopping, and transferring data.</p>
+        <p>To gather this data, I modified one loop of my Lab 5 code to use a constant PWM of 150 instead of recalculating each time. 
+            This simplified starting, stopping, and transferring data.</p>
 
         <h3>2. Initialize KF (Python) & Test Kalman Filter in Jupyter</h3>
-        <p>Next, I computed the A and B matrices based on the drag (d) and mass (m) values found and discretized them. My sampling time was <strong>98 ms</strong> from prior labs. I defined the C matrix and initialized the state vector using the first TOF distance reading, assuming zero initial velocity. C = np.array([[-1, 0]]), x = np.array([[tof_array[0]], [0]])</p>
+        <p>Next, I computed the A and B matrices based on the drag (d) and mass (m) values found and discretized them. My sampling 
+            time was <strong>98 ms</strong> from prior labs. I defined the C matrix and initialized the state vector using the first TOF distance reading, 
+            assuming zero initial velocity. C = np.array([[-1, 0]]), x = np.array([[tof_array[0]], [0]])</p>
+          <p>Python Code for calculating drag (d) & mass (m):</p>
+        <img src="pyt.png" alt="Python code snippet for drag and mass calculation">
+     
+          <p>Outputs:</p>
+        <img src="calcsfinal.png" alt="Python code snippet for drag and mass calculation">
 
         <h4>Kalman Filter Process Noise and Sensor Noise:</h4>
         <p><strong>Sigma_1:</strong> Represents position uncertainty. Larger values place more trust in sensor measurements over model predictions.</p>
