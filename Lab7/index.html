@@ -68,7 +68,8 @@
         <p><strong>Sigma_2:</strong> Reflects velocity uncertainty. Increasing this makes the filter rely more on sensor data for velocity estimation.</p>
         <p><strong>Sigma_3:</strong> Represents sensor data uncertainty. Larger sigma_3 makes the filter trust model predictions over noisy sensor readings.</p>
 
-        <p>I used sigma values: <strong>sigma_1 = 10, sigma_2 = 10, sigma_3 = 1</strong>. This setup places more trust in the sensor readings. The effect of varying these values can be seen in the plots below.</p>
+        <p>I used sigma values: <strong>sigma_1 = 10, sigma_2 = 10, sigma_3 = 1</strong>. This setup places more trust in the sensor readings. 
+            The effect of varying these values can be seen in the plots below.</p>
 
         <p>Plots with varying sigma values:</p>
         <img src="111.png" alt="Plots showing sigma variations">
@@ -77,9 +78,6 @@
         <img src="3.png" alt="Plots showing sigma variations">
          <p>Chosen sigma values:</p>
         <img src="2.png" alt="Plots showing sigma variations">
-
-        <p>Python code to implement the Kalman filter:</p>
-        <img src="kf_code.png" alt="Python Kalman filter code snippet">
 
         <h4>Testing the Kalman Filter with Noise</h4>
         <p>I tested the filter with randomly generated noisy sensor data, similar to examples from previous years. The filter reduced sensor noise, 
