@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Lab 7: Kalman Filter Implementation</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 { color: #333; }
+        .container { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+        }
+        p { 
+            line-height: 1.6; 
+        }
+        img, iframe {
+            max-width: 100%;
+            display: block;
+            margin: 10px auto;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lab 7: Kalman Filter Implementation</h1>
+
+        <h3>1. Estimate Drag and Momentum</h3>
+        <p>I estimated the drag and momentum terms for my A and B matrices using a step response. I drove the car towards a wall at a constant input motor speed while logging motor input values and ToF sensor output. The step size used was <strong>u(t) = 150 PWM</strong>, the maximum from Lab 5. Data was collected far enough from the wall to ensure the car reached steady state. The step response was plotted in Python to calculate drag and mass, as shown below.</p>
+
+        <p>Graphs:</p>
+        <img src="step_response.png" alt="Step response graph">
+
+        <p>Python Code for calculating drag (d) & mass (m):</p>
+        <img src="python_drag_mass.png" alt="Python code snippet for drag and mass calculation">
+
+        <p>To gather this data, I modified one loop of my Lab 5 code to use a constant PWM of 150 instead of recalculating each time. This simplified starting, stopping, and transferring data.</p>
+
+        <h3>2. Initialize KF (Python) & Test Kalman Filter in Jupyter</h3>
+        <p>Next, I computed the A and B matrices based on the drag (d) and mass (m) values found and discretized them. My sampling time was <strong>98 ms</strong> from prior labs. I defined the C matrix and initialized the state vector using the first TOF distance reading, assuming zero initial velocity.</p>
+
+        <h4>Kalman Filter Process Noise and Sensor Noise:</h4>
+        <p><strong>Sigma_1:</strong> Represents position uncertainty. Larger values place more trust in sensor measurements over model predictions.</p>
+        <p><strong>Sigma_2:</strong> Reflects velocity uncertainty. Increasing this makes the filter rely more on sensor data for velocity estimation.</p>
+        <p><strong>Sigma_3:</strong> Represents sensor data uncertainty. Larger sigma_3 makes the filter trust model predictions over noisy sensor readings.</p>
+
+        <p>I used sigma values: <strong>sigma_1 = 10, sigma_2 = 10, sigma_3 = 1</strong>. This setup places more trust in the sensor readings. The effect of varying these values can be seen in the plots below.</p>
+
+        <p>Plots:</p>
+        <img src="sigma_plots.png" alt="Plots showing sigma variations">
+
+        <p>Python code to implement the Kalman filter:</p>
+        <img src="kf_code.png" alt="Python Kalman filter code snippet">
+
+        <h3>3. Testing the Kalman Filter with Noise</h3>
+        <p>I tested the filter with randomly generated noisy sensor data, similar to examples from previous years. The filter reduced sensor noise, although it wasn’t perfectly stable compared to some flat-line results from others. I set sigma_3 higher to represent a scenario with increased sensor noise, which resulted in more model reliance.</p>
+
+        <p>Noisy data with Kalman filter applied:</p>
+        <img src="noisy_kf_results.png" alt="Filtered noisy data graph">
+
+        <h3>4. Implement the Kalman Filter on the Robot</h3>
+        <p>I implemented the Kalman filter on the robot by following a similar method to Labs 5 and 6. I wrote a function in Python to turn the filter on, which initialized inputs, called the filter, and returned PWM outputs. My car still required a higher base PWM (50) to move, making it slightly difficult to reach the precise target distance. The results are shown in the graph and video below, where the car no longer overshoots but still stops slightly too far away.</p>
+
+        <img src="robot_kf_performance.png" alt="Robot performance graph">
+
+        <h4>Video demonstration:</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_link_here" frameborder="0" allowfullscreen></iframe>
+
+    </div>
+</body>
+</html>
 
