@@ -47,7 +47,8 @@
             Python to calculate drag and mass, as shown below.</p>
 
         <p>Graphs:</p>
-        <img src="finaldate.png" alt="Step response graph">
+        <img src="finaldate.png" alt="Step response graph style="width:600px; height:auto;">
+
 
         <p>To gather this data, I modified one loop of my Lab 5 code to use a constant PWM of 150 instead of recalculating each time. 
             This simplified starting, stopping, and transferring data.</p>
@@ -89,12 +90,34 @@
         <img src="noise.png" alt="Filtered noisy data graph">
 
         <h3>4. Implement the Kalman Filter on the Robot</h3>
-        <p>I implemented the Kalman filter on the robot by following a similar method to Labs 5 and 6. I wrote a function in Python to turn the filter on, which initialized inputs, called the filter, and returned PWM outputs. My car still required a higher base PWM (50) to move, making it slightly difficult to reach the precise target distance. The results are shown in the graph and video below, where the car no longer overshoots but still stops slightly too far away.</p>
+        <p>I implemented the Kalman filter on the robot by following a similar method to Labs 5 and 6. I wrote a function in Python to turn the 
+            filter on, which initialized inputs, called the filter, and returned PWM outputs. Then another funtion transfered the array data to python. 
+            My car still required a higher base PWM (50) to move, 
+            making it slightly difficult to reach the precise target distance. The results are shown in the graph and video below, where the car no 
+            longer overshoots but still stops slightly too far away.</p>
 
-        <img src="robot_kf_performance.png" alt="Robot performance graph">
+        <p></p>Filter on:</p>
+        <img src="k.png" alt="Robot performance graph">
+
+
+       <p></p>Main body code snipt:</p>
+
+        <img src="krun.png" alt="Robot performance graph">
 
         <h4>Video demonstration:</h4>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_link_here" frameborder="0" allowfullscreen></iframe>
+    
+
+         <h4>Video demonstration:</h4>
+
+
+         <p></p>Distance vs time (sensor and klarman):</p>
+            <img src="distancesfinal.png" alt="Step response graph style="width:600px; height:auto;">
+
+
+
+            <p></p>PWM vs time:</p>
+          <img src="pwmfinal.png" alt="Step response graph style="width:600px; height:auto;">
 
     </div>
 </body>
