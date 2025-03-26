@@ -45,7 +45,7 @@
         <img src="finaldate.png" alt="Step response graph">
 
         <p>Python Code for calculating drag (d) & mass (m):</p>
-        <img src="python_drag_mass.png" alt="Python code snippet for drag and mass calculation">
+        <img src="pyt.png" alt="Python code snippet for drag and mass calculation">
 
           <p>Outputs:</p>
         <img src="calcsfinal.png" alt="Python code snippet for drag and mass calculation">
@@ -53,7 +53,7 @@
         <p>To gather this data, I modified one loop of my Lab 5 code to use a constant PWM of 150 instead of recalculating each time. This simplified starting, stopping, and transferring data.</p>
 
         <h3>2. Initialize KF (Python) & Test Kalman Filter in Jupyter</h3>
-        <p>Next, I computed the A and B matrices based on the drag (d) and mass (m) values found and discretized them. My sampling time was <strong>98 ms</strong> from prior labs. I defined the C matrix and initialized the state vector using the first TOF distance reading, assuming zero initial velocity.</p>
+        <p>Next, I computed the A and B matrices based on the drag (d) and mass (m) values found and discretized them. My sampling time was <strong>98 ms</strong> from prior labs. I defined the C matrix and initialized the state vector using the first TOF distance reading, assuming zero initial velocity. C = np.array([[-1, 0]]), x = np.array([[tof_array[0]], [0]])</p>
 
         <h4>Kalman Filter Process Noise and Sensor Noise:</h4>
         <p><strong>Sigma_1:</strong> Represents position uncertainty. Larger values place more trust in sensor measurements over model predictions.</p>
@@ -62,8 +62,13 @@
 
         <p>I used sigma values: <strong>sigma_1 = 10, sigma_2 = 10, sigma_3 = 1</strong>. This setup places more trust in the sensor readings. The effect of varying these values can be seen in the plots below.</p>
 
-        <p>Plots:</p>
-        <img src="sigma_plots.png" alt="Plots showing sigma variations">
+        <p>Plots with varying sigma values:</p>
+        <img src="111.png" alt="Plots showing sigma variations">
+        <img src="1.png" alt="Plots showing sigma variations">
+        <img src="2100.png" alt="Plots showing sigma variations">
+        <img src="3.png" alt="Plots showing sigma variations">
+         <p>Chosen sigma values:</p>
+        <img src="2.png" alt="Plots showing sigma variations">
 
         <p>Python code to implement the Kalman filter:</p>
         <img src="kf_code.png" alt="Python Kalman filter code snippet">
