@@ -73,11 +73,13 @@
         <p>Python code to implement the Kalman filter:</p>
         <img src="kf_code.png" alt="Python Kalman filter code snippet">
 
-        <h3>3. Testing the Kalman Filter with Noise</h3>
-        <p>I tested the filter with randomly generated noisy sensor data, similar to examples from previous years. The filter reduced sensor noise, although it wasn’t perfectly stable compared to some flat-line results from others. I set sigma_3 higher to represent a scenario with increased sensor noise, which resulted in more model reliance.</p>
+        <h4>Testing the Kalman Filter with Noise</h4>
+        <p>I tested the filter with randomly generated noisy sensor data, similar to examples from previous years. The filter reduced sensor noise, 
+            although it wasn’t perfectly stable compared to some flat-line results from others.
+            I set sigma_3 higher to represent a scenario with increased sensor noise, which resulted in more model reliance.</p>
 
         <p>Noisy data with Kalman filter applied:</p>
-        <img src="noisy_kf_results.png" alt="Filtered noisy data graph">
+        <img src="noise.png" alt="Filtered noisy data graph">
 
         <h3>4. Implement the Kalman Filter on the Robot</h3>
         <p>I implemented the Kalman filter on the robot by following a similar method to Labs 5 and 6. I wrote a function in Python to turn the filter on, which initialized inputs, called the filter, and returned PWM outputs. My car still required a higher base PWM (50) to move, making it slightly difficult to reach the precise target distance. The results are shown in the graph and video below, where the car no longer overshoots but still stops slightly too far away.</p>
