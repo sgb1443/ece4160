@@ -60,10 +60,10 @@
 </p>
 <p>
     The flip sequence began by driving the car toward the wall at full speed (255 PWM). Using trial and error, I found that triggering the flip at 
-  1200 mm worked best. When the distance sensor read 1200 mm, the robot switched to -255 PWM, causing it to slow down sharply and flip on the mat.
-  After one second of reverse motion, the car was commanded to drive forward at 150 PWM to return to the starting line. I found this PWM level allowed 
-  it to reliably cross back instead of veering off. The car drove away from the wall for two seconds, at which point I had to physically catch it. This 
-  value could have been reduced for better control.
+  1200 mm worked best. When the distance sensor read 1200 mm, the robot switched to -255 PWM, causing it to slow down sharply and flip on the mat, then start driving in the opposite direction.
+  After one second of reverse motion at -255 pwm, the car was switched to -150 PWM to return to the starting line. I found this PWM level allowed 
+  it to reliably cross back instead of veering off, although looking back, I could have kept it at -255 pwm. The car drove away from the wall for three 
+    seconds, at which point I had to physically catch it. This value of three seconds could have been reduced to keep me from chasing the car down.
 </p>
 
 <h4>Flip Code Snippet:</h4>
@@ -94,7 +94,7 @@
   the end, which is where it stayed until it crossed the line and I caught the car. 
 </p>
 
-<h3>Average Time to complete full stunt: </h3>
+<h3>Average Time to complete full stunt: 2.7 seconds </h3>
 
 <h3>Discussion</h3>
 <p>
