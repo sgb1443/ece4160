@@ -1,1 +1,61 @@
+<h1>Lab 8: Stunts</h1>
+
+<h3>Flip Stunt Description</h3>
+<p>
+    To complete this stunt, my robot had to start from a designated line less than 4 meters from the wall, accelerate forward at a high speed 
+  without using PID position control, hit a sticky mat positioned 1 foot from the wall to trigger a front flip, and then drive back in the original direction. 
+  Success was determined by whether the robot completed the flip and made it back across the starting line without veering off course.
+</p>
+
+<h3>Completing the Stunt</h3>
+<p>
+    I added weight to the front of the car to help it flip by taping on two 9V batteries. This shifted the center of mass forward so that, when the robot hit 
+  the sticky mat at high speed, it would rotate and flip instead of just stopping or bouncing.
+</p>
+<p>
+    I set up a Python command to initiate the flip and another to send position and PWM data once the stunt was completed, just like in past labs.
+</p>
+<p>
+    The flip sequence began by driving the car toward the wall at full speed (255 PWM). Using trial and error, I found that triggering the flip at 
+  1200 mm worked best. When the distance sensor read 1200 mm, the robot switched to -255 PWM, causing it to slow down sharply and flip on the mat.
+  After one second of reverse motion, the car was commanded to drive forward at 150 PWM to return to the starting line. I found this PWM level allowed 
+  it to reliably cross back instead of veering off. The car drove away from the wall for two seconds, at which point I had to physically catch it. This 
+  value could have been reduced for better control.
+</p>
+
+<h4>Flip Code Snippet:</h4>
+<img src="flip.png" alt="Flip stunt code snippet" style="width: 600px; height: auto;">
+
+<h3>Troubleshooting</h3>
+<p>
+    My main troubleshooting focused on tuning the sensor distance to trigger the flip and calibrating the return speed so the car wouldn’t go off course. 
+  I initially attempted to use a Kalman filter to clean up the distance sensor readings, but found it unnecessary—my car flipped reliably without it.
+</p>
+
+<h3>Video 1 & Graphs</h3>
+<iframe width="500" height="300" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+<img src="av1.png" alt="Graph 1" style="width: 500px; height: auto;">
+
+<h3>Video 2 & Graphs</h3>
+<iframe width="500" height="300" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+<img src="av2.png" alt="Graph 2" style="width: 500px; height: auto;">
+
+<h3>Video 3 & Graphs</h3>
+<iframe width="500" height="300" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+<img src="av3.png" alt="Graph 3" style="width: 500px; height: auto;">
+
+<p>
+    The graphs show the distance sensor readings up until the flip, after that point they're not needed. My PWM graph shows the PWM value at -150 at 
+  the end, which is where it stayed until it crossed the line and I caught the car. 
+</p>
+
+<h3>Average Time to complete full stunt: </h3>
+
+<h3>Discussion</h3>
+<p>
+    I really enjoyed getting to make the car do stunts—it made me think more about how the physical behavior of the robot interacts with the code 
+  and sensor input. I had to adjust the robot’s hardware (adding front weight) and software (tuning sensor thresholds and timing) to achieve the flip. 
+  The sensor didn’t trigger at exactly the mat’s position, which highlighted the importance of adjusting your system for the actual conditions and not 
+  just theoretical measurements.
+</p>
 
