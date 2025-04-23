@@ -60,7 +60,17 @@
 
 <h4>PID-Controlled Turn Video:</h4>
 <iframe width="500" height="300" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        
+<h4>Code snippets:</h4>
+        <p>
+    Setup loop, do PID & get distance, update target and time:
+</p>
+        <img src="1.png" alt="Graph showing PID target vs actual yaw and PWM over time">
+        <img src="2.png" alt="Graph showing PID target vs actual yaw and PWM over time">
+        <img src="3.png" alt="Graph showing PID target vs actual yaw and PWM over time">
 
+
+        
 <h3>Error Estimation</h3>
 <p>
     Given the reliability of my angular steps and the consistency of my PID controller, the primary error came from the robot not perfectly rotating on its center axis. I estimate the average drift to be about 3 inches (0.0762 m) and the maximum around 6 inches (0.1524 m). These are translational drifts, which result in small radial mapping errors.
@@ -68,8 +78,8 @@
 <p>
     The error from this drift in a 4×4 m square room is relatively small—on the order of a few millimeters of radial error (1.5–5.8 mm). However, IMU drift presents a much larger problem. Assuming a 10° heading error, the positional mapping error can reach up to 34.7 cm. The graphs at the end of the scan show distortions that suggest both drift and slight heading misalignment.
 </p>
-<img src="drift_error.png" alt="Drift error estimation diagram">
-<img src="imu_error.png" alt="IMU drift error estimation diagram">
+<img src="transl.png" alt="Drift error estimation diagram">
+<img src="drift.png" alt="IMU drift error estimation diagram">
 
 <h3>Data Collection</h3>
 <p>
@@ -80,16 +90,16 @@
 </p>
 
 <h4>Individual Scan Plots:</h4>
-<img src="scan1.png" alt="Scan 1">
-<img src="scan2.png" alt="Scan 2">
-<img src="scan3.png" alt="Scan 3">
-<img src="scan4.png" alt="Scan 4">
+<img src="plot1B.png" alt="Scan 1">
+<img src="plot2.png" alt="Scan 2">
+<img src="plot3.png" alt="Scan 3">
+<img src="plot4.png" alt="Scan 4">
 
 <h3>Rotational Consistency Check</h3>
 <p>
     When performing multiple full turns, the shape of the room appeared consistent early on. However, once the PID controller lost control or the robot sped up, data quality deteriorated. Maintaining slower rotation improved consistency and reduced sensor noise.
 </p>
-<img src="multiturn_scan.png" alt="Multiple full turns scan result">
+<img src="manyturns.png" alt="Multiple full turns scan result">
 
 <h3>Transformations and Merging</h3>
 <p>
@@ -100,25 +110,22 @@
 <p>
     The ToF sensor is mounted 1.3 inches (0.03302 m) in front of the robot's center and aligned with its axis, so T₁ is a translation in the x-direction.
 </p>
-<img src="T1.png" alt="T1 transformation matrix">
 
 <h4>Transformation T₂: Robot Frame → Inertial Frame</h4>
 <p>
     T₂ includes a rotation by θ (robot's yaw) and a translation to the robot's global position (x<sub>r</sub>, y<sub>r</sub>).
 </p>
-<img src="T2.png" alt="T2 transformation matrix">
 
-<h4>Sensor Measurement Vector P:</h4>
-<img src="P_vector.png" alt="Sensor measurement vector">
-
+<h4>& Sensor Measurement Vector P</h4>
 <h4>Combined Transformation:</h4>
 <p style="text-align: center;"><b>(x<sub>c</sub>, y<sub>c</sub>) = T₂ × T₁ × P</b></p>
+<img src="matrix.png" alt="Sensor measurement vector">
 
 <h3>Combined Scan Plot:</h3>
-<img src="merged_map.png" alt="Merged map of all scans">
+<img src="allscans.png" alt="Merged map of all scans">
 
 <h3>Line-Based Map Overlay:</h3>
-<img src="line_overlay.png" alt="Line-based map overlay on scan data">
+<img src="overlayed.png" alt="Line-based map overlay on scan data">
 
 <br>
 <a href="../index.html">Back to Main Page</a>
