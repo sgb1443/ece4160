@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 10: Grid Localization using Bayes Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        p {
+            line-height: 1.6;
+        }
+        img, iframe {
+            width: 500px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+<h1>Lab 10: Grid Localization using Bayes Filter</h1>
+
+<h3>Objective</h3>
+<p>
+    The goal of this lab was to implement grid-based localization using the Bayes filter algorithm. 
+  A robot operating in a bounded 2D environment estimated its position and orientation by incorporating noisy odometry 
+  and sensor data to iteratively update a belief distribution over a discretized grid of possible states.
+</p>
+
+<h3>Pre-lab</h3>
+<p>
+    I set up the simulator and completed two tasks: open-loop and closed-loop control.
+</p>
+
+<h4>Open Loop Control</h4>
+<p>
+    I programmed the robot to follow a set of velocity commands and trace a square loop. The robot's odometry and ground truth path were plotted for comparison. As expected, open-loop control was inconsistent—small odometry errors accumulated, causing the robot to deviate from the intended shape.
+</p>
+      <img src="prelabsquare.png" alt="compute_control function diagram">
+
+<h4>Closed Loop Control</h4>
+<p>
+    I implemented a simple controller for obstacle avoidance. The robot rotated in place at 1.2 rad/s when an object was detected within 0.4 meters, and otherwise moved forward at 0.2 m/s. While this worked well in open areas, it sometimes failed in corners or tight spaces due to having only one front-facing sensor. Adding a backup behavior or side sensors would improve reliability.
+</p>
+        <img src="avoidcontroller.png" alt="compute_control function diagram">
+
+<h3>Lab Tasks</h3>
+<p>
+    The main task was to perform grid localization on the sample trajectory provided in the notebook using the Bayes filter framework.
+</p>
+
+<h4>compute_control</h4>
+<p>
+    This function breaks down motion between two poses into: <b>delta_rot_1</b> (initial turn), <b>delta_trans</b> (straight-line travel), and <b>delta_rot_2</b> (final turn). These are returned in degrees and meters to be used in the prediction step.
+</p>
+<img src="1.png" alt="compute_control function diagram">
+
+<h4>odom_motion_model</h4>
+<p>
+    This function estimates how likely it is that the robot moved from a previous to a current pose, given a control input. It compares estimated and commanded motions using Gaussian distributions and returns the combined probability.
+</p>
+<img src="2.png" alt="odom_motion_model function diagram">
+
+<h4>prediction_step</h4>
+<p>
+    This step updates the prior belief using the odometry motion model. It considers transitions between every pair of grid states and uses motion probabilities to compute the new belief estimate, which is then normalized.
+</p>
+<img src="3.png" alt="prediction_step diagram">
+
+<h4>sensor_model</h4>
+<p>
+    This function calculates the likelihood of each of 18 individual sensor readings by comparing actual vs. expected values at a pose, using Gaussian noise. The result is an array of 18 likelihoods.
+</p>
+<img src="4.png" alt="sensor_model diagram">
+
+<h4>update_step</h4>
+<p>
+    In this step, the predicted belief is refined using sensor data. Each grid cell’s likelihood is calculated using the sensor model and multiplied with its prior belief, then normalized to produce the updated belief.
+</p>
+<img src="5.png" alt="update_step diagram">
+
+<h3>Results</h3>
+<h4>Video:</h4>
+<iframe width="500" height="300" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+
+<h4>Plot:</h4>
+<img src="trajectory.png" alt="Odometry, Belief, and Ground Truth paths">
+      <img src="end.png" alt="Odometry, Belief, and Ground Truth paths">
+
+<p>
+    The odometry-only path (red) was highly inaccurate and drifted significantly. The belief (blue), however, closely followed
+  the true path (green) for most of the run. Even when the belief deviated—especially during turns or at the center of the grid—it quickly 
+  corrected itself. This demonstrates the Bayes filter’s ability to localize accurately despite poor odometry.
+</p>
+
+<h3>Discussion</h3>
+<p>
+    The Bayes filter outperformed odometry alone by quickly correcting drift using sensor data. Compared to the Kalman filter, 
+  it handled nonlinearity and discrete states better, making it more reliable for accurate robot localization.
+</p>
+
+<br>
+<a href="../index.html">Back to Main Page</a>
+
+</div>
+</body>
+</html>
 
