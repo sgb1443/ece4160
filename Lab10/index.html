@@ -49,6 +49,19 @@
   and sensor data to iteratively update a belief distribution over a discretized grid of possible states.
 </p>
 
+        <h3>Bayes Filter Summary</h3>
+<p>
+    The Bayes filter is a probabilistic algorithm used to estimate a robot’s position by combining uncertain motion and sensor data. It maintains a belief distribution over possible states and updates this belief in two steps:
+</p>
+<ul>
+    <li><strong>Prediction:</strong> Uses control inputs to estimate the robot’s new state, increasing uncertainty.</li>
+    <li><strong>Update:</strong> Uses sensor measurements to correct the belief, reducing uncertainty.</li>
+</ul>
+<p>
+    By repeating these steps, the Bayes filter can accurately localize a robot even with noisy data and incomplete information.
+</p>
+
+
 <h3>Pre-lab</h3>
 <p>
     I set up the simulator and completed two tasks: open-loop and closed-loop control.
