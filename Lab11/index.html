@@ -1,1 +1,69 @@
+<h1>Lab 11: Localization on the Real Robot</h1>
+
+<h3>Objective</h3>
+<p>
+    The goal of this lab was to implement localization on a real robot using the Bayes filter, 
+    focusing exclusively on the update step based on 360-degree ToF sensor scans. 
+    Because the robot's motion was too noisy for accurate odometry, the prediction step was omitted. 
+    This lab emphasized the challenges of translating algorithms from simulation to real-world systems, 
+    and made use of an optimized localization framework to enable real-time performance on the robot.
+</p>
+
+<h3>Implementation</h3>
+<p>
+    I modified the Arduino code from the Mapping Lab to collect exactly 18 ToF distance measurements—fewer than the continuous stream used previously—and send them over Bluetooth. 
+    When the robot receives the <code>PERFORM_OBSERVATION_LOOP</code> command, it initiates a rotation and transmits the sensor readings once the loop is complete.
+</p>
+<p>
+    Initially, I encountered issues with invalid yaw data after making large changes to the previous working code. 
+    To address this, I adopted an iterative debugging approach: making one small change at a time, testing to confirm the robot still returned the expected data, 
+    and repeating until I reached the desired result. A custom notification handler was written to process incoming Bluetooth data.
+</p>
+<p>
+    Both the data collection and reception logic were encapsulated within the <code>PERFORM_OBSERVATION_LOOP</code> command, which I called each time I wanted the robot to collect and transmit a full sensor sweep.
+</p>
+
+<h4>Code:</h4>
+<img src="c1.png" alt="Code snippet 1">
+<img src="c2.png" alt="Code snippet 2">
+<img src="notif.png" alt="Code snippet 3">
+<img src="loop.png" alt="Code snippet 4">
+
+<h3>Results</h3>
+<p>
+    The robot experienced mechanical difficulties during turning—specifically, one wheel often struggled to spin—resulting in uneven rotation and significant drift. 
+    This made consistent, centered rotation difficult and introduced error into the localization estimates.
+</p>
+<p>
+    The following poses were tested, and each belief estimate reflects my best attempt at achieving a clean, stable rotation at each location.
+</p>
+
+<pre>
+(-3 ft, -2 ft, 0°)
+(0 ft,  3 ft, 0°) 
+(5 ft, -3 ft, 0°) 
+(5 ft,  3 ft, 0°)
+</pre>
+
+<h4>Results:</h4>
+<img src="32.png" alt="Result at (-3, -2)">
+<img src="03.png" alt="Result at (0, 3)">
+<img src="5m3.png" alt="Result at (5, -3)">
+<img src="53.png" alt="Result at (5, 3)">
+
+<h3>Discussion</h3>
+<p>
+    Compared to the simulation-based Bayes filter from Lab 10, implementing localization on the real robot posed several additional challenges. 
+    The primary issue was hardware reliability—specifically, motor inconsistencies that caused the robot to drift or rotate unevenly. 
+    This mechanical drift introduced error into the sensor sweep and likely caused a mismatch between the real-world environment and expected map views.
+</p>
+<p>
+    Despite this, the Bayes filter was still able to generate belief estimates that roughly corresponded to the correct regions of the map. 
+    In more constrained or uniquely shaped areas of the environment, the robot localized more accurately. 
+    However, in open regions or near symmetric features, the localization contained more error. 
+</p>
+
+
+<br>
+<a href="../index.html">Back to Main Page</a>
 
