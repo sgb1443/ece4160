@@ -44,12 +44,16 @@
 
 <h3>Objective</h3>
 <p>
-    The goal of this lab was to demonstrate autonomous path execution by integrating robot motion control with pre-defined waypoint navigation. Building upon the functionality developed in previous labs, this final exercise aimed to create a complete system capable of reliably following a multi-point path across a mapped environment.
+    The goal of this lab was to demonstrate autonomous path execution by integrating robot motion control with pre-defined waypoint navigation. 
+    Building upon the functionality developed in previous labs, this final exercise aimed to create a complete system capable of reliably following 
+    a multi-point path across a mapped environment.
 </p>
 
 <h3>Strategy</h3>
 <p>
-    My approach centered around writing BLE command functions in Python that could be easily edited, tuned, and executed without needing to re-upload code to the Artemis board. The strategy was intentionally simple: rely on <strong>open-loop timed control</strong> to move the robot forward or execute turns.
+    My approach centered around writing BLE command functions in Python that could be easily edited, tuned, and executed without 
+    needing to re-upload code to the Artemis board. The strategy was intentionally simple: rely on <strong>open-loop timed control</strong> to move the
+    robot forward or execute turns. 
 </p>
 <p>
     Two basic commands were used:
@@ -58,9 +62,7 @@
     <li><code>FORWARD_TIME_PWM</code>: Drive forward for a set time and PWM</li>
     <li><code>TURN_DIR_TIME</code>: Turn left (2) or right (1) for a set time and PWM</li>
 </ul>
-<p>
-    A Python script generated a sequence of these commands based on the waypoint layout and calibrated timing. Each movement or turn was followed by a <code>time.sleep()</code> to ensure proper execution duration before the next command.
-</p>
+        
 
 <h3>Execution Path</h3>
 <p>The robot followed these waypoints:</p>
