@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 12: Path Planning and Execution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        p {
+            line-height: 1.6;
+        }
+        img, iframe {
+            width: 500px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+<h1>Lab 12: Path Planning and Execution</h1>
+
+<h3>Objective</h3>
+<p>
+    The goal of this lab was to demonstrate autonomous path execution by integrating robot motion control with pre-defined waypoint navigation. Building upon the functionality developed in previous labs, this final exercise aimed to create a complete system capable of reliably following a multi-point path across a mapped environment.
+</p>
+
+<h3>Strategy</h3>
+<p>
+    My approach centered around writing BLE command functions in Python that could be easily edited, tuned, and executed without needing to re-upload code to the Artemis board. The strategy was intentionally simple: rely on <strong>open-loop timed control</strong> to move the robot forward or execute turns.
+</p>
+<p>
+    Two basic commands were used:
+</p>
+<ul>
+    <li><code>FORWARD_TIME_PWM</code>: Drive forward for a set time and PWM</li>
+    <li><code>TURN_DIR_TIME</code>: Turn left (2) or right (1) for a set time and PWM</li>
+</ul>
+<p>
+    A Python script generated a sequence of these commands based on the waypoint layout and calibrated timing. Each movement or turn was followed by a <code>time.sleep()</code> to ensure proper execution duration before the next command.
+</p>
+
+<h3>Execution Path</h3>
+<p>The robot followed these waypoints:</p>
+<pre>
+(-4, -3) → (-2, -1) → (1, -1) → (2, -3) → (5, -3) 
+       → (5, -2) → (5, 3) → (0, 3) → (0, 0)
+</pre>
+
+<h3>Implementation</h3>
+<p>
+    I manually calibrated each segment by iterating trial runs, adjusting time durations based on battery levels and drift. I found that even the same command could behave differently across trials due to minor inconsistencies in power, so frequent re-tuning was necessary.
+</p>
+
+<h4>Sample Command Script:</h4>
+<pre>
+import time
+
+ble.send_command(CMD.FORWARD_TIME_PWM, "580|150")  # (-4, -3) → (-2, -1)
+time.sleep(0.580)
+
+ble.send_command(CMD.TURN_DIR_TIME, "2|410|150")   # right turn
+time.sleep(0.410)
+
+ble.send_command(CMD.FORWARD_TIME_PWM, "700|150")  # (-2, -1) → (1, -1)
+time.sleep(0.700)
+
+ble.send_command(CMD.TURN_DIR_TIME, "2|450|150")   # right turn
+time.sleep(0.450)
+...
+</pre>
+<p>
+    This control logic proved effective for quickly testing variations in path timing. All planning and command sequencing happened offboard on the host computer.
+</p>
+
+<h3>Performance and Observations</h3>
+<p>
+    The robot completed the full waypoint path reliably in multiple trials. While open-loop control lacks the precision of feedback-based methods, the combination of BLE command batching and time-based execution was sufficient to complete the task.
+</p>
+<p>
+    The largest sources of error were due to:
+</p>
+<ul>
+    <li>Battery degradation affecting PWM consistency</li>
+    <li>Wheel slip causing slight drift over longer segments</li>
+</ul>
+
+<h3>Conclusion</h3>
+<p>
+    This lab showcased a functional end-to-end navigation pipeline built from modular BLE commands. While feedback control could offer improved precision, my open-loop method was a fast, testable, and robust solution for waypoint navigation using calibrated motion segments.
+</p>
+<p>
+    Videos and command trace logs are attached separately to demonstrate final behavior.
+</p>
+
+<a href="../index.html">Back to Main Page</a>
+
+</div>
+</body>
+</html>
 
