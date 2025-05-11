@@ -62,6 +62,9 @@
     <li><code>FORWARD_TIME_PWM</code>: Drive forward for a set time and PWM</li>
     <li><code>TURN_DIR_TIME</code>: Turn left (2) or right (1) for a set time and PWM</li>
 </ul>
+
+        <img src="fwd.png" alt=". ">
+        <img src="trn.png" alt=".">
         
 
 <h3>Execution Path</h3>
@@ -73,48 +76,42 @@
 
 <h3>Implementation</h3>
 <p>
-    I manually calibrated each segment by iterating trial runs, adjusting time durations based on battery levels and drift. I found that even the same command could behave differently across trials due to minor inconsistencies in power, so frequent re-tuning was necessary.
+    I manually calibrated each segment by iterating trial runs, adjusting time durations in seconds through using the python commands.  
+    I found that even the same command could behave differently across trials due to minor inconsistencies in the battery level, so frequent re-tuning was necessary.
 </p>
 
-<h4>Sample Command Script:</h4>
-<pre>
-import time
+<h4>My Control Script:</h4>
+        <img src="cal.png" alt=". ">
 
-ble.send_command(CMD.FORWARD_TIME_PWM, "580|150")  # (-4, -3) → (-2, -1)
-time.sleep(0.580)
+<h4>My Control Script Used to Test & Iterate:</h4>
+        <img src="calib.png" alt=". ">
+        
 
-ble.send_command(CMD.TURN_DIR_TIME, "2|410|150")   # right turn
-time.sleep(0.410)
-
-ble.send_command(CMD.FORWARD_TIME_PWM, "700|150")  # (-2, -1) → (1, -1)
-time.sleep(0.700)
-
-ble.send_command(CMD.TURN_DIR_TIME, "2|450|150")   # right turn
-time.sleep(0.450)
-...
-</pre>
 <p>
     This control logic proved effective for quickly testing variations in path timing. All planning and command sequencing happened offboard on the host computer.
 </p>
 
 <h3>Performance and Observations</h3>
 <p>
-    The robot completed the full waypoint path reliably in multiple trials. While open-loop control lacks the precision of feedback-based methods, the combination of BLE command batching and time-based execution was sufficient to complete the task.
+    The robot completed the full waypoint path reliably in multiple trials. While open-loop control lacks the precision of feedback-based methods, 
+    the combination of BLE commands and time-based execution was sufficient to complete the task.
 </p>
 <p>
     The largest sources of error were due to:
 </p>
 <ul>
     <li>Battery degradation affecting PWM consistency</li>
-    <li>Wheel slip causing slight drift over longer segments</li>
+    <li>Wheel slip causing slight drift over turns and occasional overshoot</li>
 </ul>
 
 <h3>Conclusion</h3>
 <p>
-    This lab showcased a functional end-to-end navigation pipeline built from modular BLE commands. While feedback control could offer improved precision, my open-loop method was a fast, testable, and robust solution for waypoint navigation using calibrated motion segments.
+    This lab showcased a functional end-to-end navigation pipeline built from modular BLE commands. 
+    While feedback control could offer improved precision, my open-loop method was a fast, testable, and robust solution for 
+    waypoint navigation using calibrated motion segments.
 </p>
 <p>
-    Videos and command trace logs are attached separately to demonstrate final behavior.
+    My robot's performance is shown below: 
 </p>
 
 <a href="../index.html">Back to Main Page</a>
